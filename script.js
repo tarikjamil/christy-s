@@ -18,20 +18,20 @@ window.addEventListener("load", function() {
         opacity: 0,
         ease: "Quint.easeOut",
         duration: 0.5,
-        delay: 1 // delay in seconds
+        delay: 2 // delay in seconds
     });
     gsap.to(".loading--parent-second", {
         opacity: 1,
         ease: "Quint.easeOut",
         duration: 0.5,
-        delay: 1 // delay in seconds
+        delay: 2 // delay in seconds
     });
     gsap.from("[animation='loading']", {
         opacity: 0,
         y: "20rem",
         ease: "Quint.easeOut",
         duration: 0.5,
-        delay: 1 // delay in seconds
+        delay: 2 // delay in seconds
     });
 });
 
