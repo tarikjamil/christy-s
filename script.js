@@ -126,6 +126,50 @@ $("[animation='split-stagger-text']").each(function (index) {
     );
   });
 
+  $("[animation='fade']").each(function (index) {
+    let target = $(this);
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top center",
+        ease: "Quint.easeOut",
+        duration: 1,
+      }
+    });
+  
+    tl.from(
+      target,
+      {
+        y: "20rem",
+        opacity: 0
+      },
+      0
+    );
+  });
+
+  $("[animation='fade-stagger']").each(function (index) {
+    let target = $(this).find("[animation='fade-stagger-el']");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top center",
+        ease: "Quint.easeOut",
+        duration: 1,
+      }
+    });
+  
+    tl.from(
+      target,
+      {
+        y: "20rem",
+        opacity: 0
+      },
+      0
+    );
+  });
+
   // navbar menu hamburger click
   $(".navbar--menu-trigger").click(function () {
     var clicks = $(this).data("clicks");
