@@ -99,6 +99,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         opacity: 0,
         ease: "Quint.easeOut",
         duration: 1,
+        scrub: true,
         stagger: {
           each: 0.1,
           from: "start"
@@ -140,6 +141,10 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         start: "top center",
         ease: "Quint.easeOut",
         duration: 1,
+        stagger: {
+            each: 0.1,
+            from: "start"
+          }
       }
     });
   
