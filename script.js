@@ -1,5 +1,6 @@
 // split start
 let text;
+let textline;
 
 // Split the text up
 function runSplit() {
@@ -9,6 +10,13 @@ function runSplit() {
     wordClass: "is--scroll-intoview-scrub"
   });
 }
+
+function runSplit() {
+    text = new SplitType("[animation='split-stagger-line']", {
+      types: "lines",
+      lineClass: "split-line",
+    });
+  }
 
 runSplit();
 
@@ -88,7 +96,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: $(this),
-        start: "top bottom -=100",
+        start: "top center",
         end: "bottom center",
         scrub: true,
       }
@@ -98,6 +106,35 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
       target,
       {
         y: "100%",
+        opacity: 0,
+        ease: "Quint.easeOut",
+        duration: 1,
+        stagger: {
+          each: 0.1,
+          from: "start"
+        }
+      },
+      0
+    );
+    
+  });
+
+  $("[animation='split-stagger-line']").each(function (index) {
+
+    let target = $(this).find(".split-line");
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top center",
+        end: "bottom center",
+        scrub: true,
+      }
+    });
+  
+    tl.from(
+      target,
+      {
+        y: "20rem",
         opacity: 0,
         ease: "Quint.easeOut",
         duration: 1,
