@@ -199,6 +199,50 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
       0
     );
   });
+
+  $("[animation='bam-parent']").each(function (index) {
+    let persona = $(this).find(".bam--persona");
+    let bubble = $(this).find(".bam--text-wrapper']");
+    let crack = $(this).find(".home--bam-shape']");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top bottom-=100"       
+      }
+    });
+  
+    tl.from(
+      persona,
+      {
+        x: "-100rem",
+        opacity: 0,
+        ease: "Quint.easeOut",
+        duration: 1,
+      },
+      0
+    );
+    tl.from(
+        bubble,
+        {
+          scale: 0,
+          opacity: 0,
+          ease: "Quint.easeOut",
+          duration: 1,
+        },
+        0
+    );
+    tl.from(
+        crack,
+        {
+            scale: 0,
+            opacity: 0,
+            ease: "Quint.easeOut",
+            duration: 1,
+          },
+        0
+    );
+  });
   
   $(".menu--bg").on("click", function () {
     $(".menu--link").click();
