@@ -4,8 +4,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.to(".main-wrapper", {
     opacity: 1,
     ease: "Quint.easeOut",
-    duration: 1,
-    delay: 1
+    duration: 0.5
 });
 gsap.from(".logo--loading", {
     opacity: 0,
