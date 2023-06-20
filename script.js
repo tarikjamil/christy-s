@@ -38,6 +38,16 @@ window.addEventListener("load", function() {
           },
         delay: 4 // delay in seconds
     });
+    gsap.from("[animation='loading-navbar']", {
+        opacity: 0,
+        y: "-20rem",
+        ease: "Quint.easeOut",
+        duration: 1,
+        stagger: {
+            each: 0.1
+          },
+        delay: 4 // delay in seconds
+    });
 });
 
 
