@@ -82,8 +82,12 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         duration: 1,
         delay: 0.2,
         ease: "Quint.easeOut",
-        PointerEvent: "none",
+        onComplete: function() {
+            // Set the pointer-events property to none after the animation
+            document.querySelector('.section.is--loading').style.pointerEvents = 'none';
+        }
     });
+    
     gsap.from("[animation='loadingclick']", {
         opacity: 0,
         y: "20rem",
@@ -97,26 +101,31 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
 });
 
 // split text
-$("[animation='split-stagger-text']").each(function (index) {
+  $("[animation='split-stagger-text']").each(function (index) {
+
     let target = $(this).find(".is--scroll-intoview-scrub");
-  
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: $(this),
-        start: "top center",
-        end: "bottom center",
-        ease: "Quint.easeOut",
-        scrub: true
+        start: "top bottom -=100"
       }
     });
   
     tl.from(
       target,
       {
-        y: "100%"
+        y: "100%",
+        opacity: 0,
+        ease: "Quint.easeOut",
+        duration: 1,
+        stagger: {
+          each: 0.1,
+          from: "start"
+        }
       },
       0
     );
+    
   });
 
   $("[animation='fade']").each(function (index) {
