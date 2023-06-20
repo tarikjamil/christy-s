@@ -11,7 +11,7 @@ function runSplit() {
   });
 }
 
-function runSplit() {
+function runSplit2() {
     text = new SplitType("[animation='split-stagger-line']", {
       types: "lines",
       lineClass: "split-line",
@@ -19,6 +19,8 @@ function runSplit() {
   }
 
 runSplit();
+runSplit2();
+
 
 // split type ends
 
