@@ -82,7 +82,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         stagger: {
             each: 0.1
           },
-        delay: 4 // delay in seconds
+        delay: 0.2 // delay in seconds
     });
 });
 
