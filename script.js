@@ -21,32 +21,40 @@
   // split type ends
   
   gsap.registerPlugin(ScrollTrigger);
-  
-  // On Page Load
-  function pageLoad() {
-    let tl = gsap.timeline();
-    tl.to(".main-wrapper", {
-      opacity: 1,
-      ease: "Quint.easeOut",
-      duration: 1
-    });
-    tl.from(".is--scroll-hero-scrub", {
-      y: "100%",
-      opacity: "0",
-      stagger: { each: 0.1, from: "start" },
-      ease: "Quint.easeOut",
-      duration: 1
-    });
-    tl.from("[animation='loading']", {
-      y: "20rem",
-      opacity: "0",
-      stagger: { each: 0.1, from: "start" },
-      ease: "Quint.easeOut",
-      duration: 1,
-      delay: -1
-    });
-  }
-  pageLoad();
+
+  // page load starts
+  gsap.to(".main-wrapper", {
+    opacity: 0,
+    ease: "Quint.easeOut",
+    duration: 1
+  });
+  gsap.from(".logo--loading", {
+    opacity: 0,
+    ease: "Quint.easeOut",
+    duration: 1
+  });
+
+
+// page finish loading
+  window.addEventListener("load", function() {
+    gsap.to(".loading-parent", {
+        opacity: 0,
+        ease: "Quint.easeOut",
+        duration: 0.5
+      });
+    gsap.to(".loading--parent-second", {
+        opacity: 1,
+        ease: "Quint.easeOut",
+        duration: 0.5
+      });
+    gsap.from("[animation='loading']", {
+        opacity: 0,
+        y:"20rem",
+        ease: "Quint.easeOut",
+        duration: 0.5
+      });
+
+});
   
   $("[animation='split-stagger']").each(function (index) {
     let target = $(this).find("[animation='split-stagger-el']");
@@ -188,19 +196,6 @@
       },
       0
     );
-  });
-  
-  // navbar color
-  $(document).ready(function () {
-    var scrollTop = 0;
-    $(window).scroll(function () {
-      scrollTop = $(window).scrollTop();
-      if (scrollTop >= 100) {
-        $(".navbar").addClass("is--scrolled");
-      } else if (scrollTop < 100) {
-        $(".navbar").removeClass("is--scrolled");
-      }
-    });
   });
   
   // navbar menu hamburger click
