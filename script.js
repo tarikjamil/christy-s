@@ -4,12 +4,14 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.to(".main-wrapper", {
     opacity: 1,
     ease: "Quint.easeOut",
-    duration: 1
+    duration: 1,
+    delay: 1
 });
 gsap.from(".logo--loading", {
     opacity: 0,
     ease: "Quint.easeOut",
-    duration: 1
+    duration: 1,
+    delay: 1
 });
 
 // page finish loading
@@ -17,21 +19,21 @@ window.addEventListener("load", function() {
     gsap.to(".loading-parent", {
         opacity: 0,
         ease: "Quint.easeOut",
-        duration: 0.5,
-        delay: 2 // delay in seconds
+        duration: 1,
+        delay: 4 // delay in seconds
     });
     gsap.to(".loading--parent-second", {
         opacity: 1,
         ease: "Quint.easeOut",
-        duration: 0.5,
-        delay: 2 // delay in seconds
+        duration: 1,
+        delay: 4 // delay in seconds
     });
     gsap.from("[animation='loading']", {
         opacity: 0,
         y: "20rem",
         ease: "Quint.easeOut",
-        duration: 0.5,
-        delay: 2 // delay in seconds
+        duration: 1,
+        delay: 4 // delay in seconds
     });
 });
 
