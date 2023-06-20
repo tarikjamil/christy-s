@@ -200,6 +200,27 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     );
   });
 
+  $("[animation='parallax-wrapper']").each(function (index) {
+    let target = $(this).find("[animation='parallax']");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top bottom",
+        end: "bottom top", 
+        scrub: true,       
+      }
+    });
+  
+    tl.from(
+      target,
+      {
+        y: "-10%"
+      },
+      0
+    );
+  });
+
   $("[animation='bam-parent']").each(function (index) {
     let persona = $(this).find(".bam--persona");
     let bubble = $(this).find(".bam--text-wrapper']");
