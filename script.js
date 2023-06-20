@@ -112,7 +112,6 @@ $("[animation='split-stagger-text']").each(function (index) {
         start: "top center",
         end: "bottom center",
         ease: "Quint.easeOut",
-        duration: 1,
         scrub: true
       }
     });
