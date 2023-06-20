@@ -9,6 +9,7 @@ gsap.to(".main-wrapper", {
 });
 gsap.from(".logo--loading", {
     opacity: 0,
+    y: "20rem",
     ease: "Quint.easeOut",
     duration: 1,
     delay: 1
