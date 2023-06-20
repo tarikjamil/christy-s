@@ -24,7 +24,7 @@
 
   // page load starts
   gsap.to(".main-wrapper", {
-    opacity: 0,
+    opacity: 1,
     ease: "Quint.easeOut",
     duration: 1
   });
