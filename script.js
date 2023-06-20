@@ -88,7 +88,9 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: $(this),
-        start: "top bottom -=100"
+        start: "top bottom -=100",
+        end: "bottom center",
+        scrub: true,
       }
     });
   
@@ -99,9 +101,6 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         opacity: 0,
         ease: "Quint.easeOut",
         duration: 1,
-        scrub: true,
-        start: "top bottom-=200",
-        end: "bottom center",
         stagger: {
           each: 0.1,
           from: "start"
