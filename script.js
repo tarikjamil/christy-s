@@ -120,7 +120,7 @@ $("[animation='split-stagger-text']").each(function (index) {
     tl.from(
       target,
       {
-        y: "-100%"
+        y: "100%"
       },
       0
     );
