@@ -173,7 +173,32 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     
   });
 
-
+  $("[animation='fade-stagger']").each(function (index) {
+    let target = $(this).find("[animation='fade-stagger-el']");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top bottom-=100",
+        end: "bottom center",
+        duration: 1,
+        
+      }
+    });
+  
+    tl.from(
+      target,
+      {
+        y: "100rem",
+        opacity: 0,
+        stagger: {
+            each: 0.1,
+            from: "start"
+        }
+      },
+      0
+    );
+  });
   
   $(".menu--bg").on("click", function () {
     $(".menu--link").click();
