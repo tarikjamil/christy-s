@@ -64,6 +64,16 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
             document.querySelector('.section.is--loading').style.display = 'none';
         }
     });
+    gsap.from("[animation='loadingclick']", {
+        opacity: 0,
+        y: "20rem",
+        ease: "Quint.easeOut",
+        duration: 1,
+        stagger: {
+            each: 0.1
+          },
+        delay: 4 // delay in seconds
+    });
 });
 
 
