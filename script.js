@@ -40,9 +40,31 @@ window.addEventListener("load", function() {
     });
 });
 
-  
 
-  
+document.querySelector('.load--link').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default action of the link
+    
+    gsap.to('.home--parent', {
+        opacity: 1,
+        duration: 1,
+        ease: "Quint.easeOut",
+        onStart: function() {
+            // Set the display property to block just before the animation starts
+            document.querySelector('.home--parent').style.display = 'block';
+        }
+    });
+    gsap.to('.section.is--loading', {
+        opacity: 0,
+        duration: 1,
+        ease: "Quint.easeOut",
+        onStart: function() {
+            // Set the display property to block just before the animation starts
+            document.querySelector('.section.is--loading').style.display = 'none';
+        }
+    });
+});
+
+
   // navbar menu hamburger click
   $(".navbar--menu-trigger").click(function () {
     var clicks = $(this).data("clicks");
