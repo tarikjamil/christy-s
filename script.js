@@ -132,7 +132,7 @@ $("[animation='split-stagger-text']").each(function (index) {
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: $(this),
-        start: "top center",
+        start: "top bottom-=200",
         ease: "Quint.easeOut",
         duration: 1,
       }
