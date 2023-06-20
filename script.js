@@ -150,41 +150,17 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     
   });
 
-  $("[animation='fade']").each(function (index) {
-    let target = $(this);
-  
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: $(this),
-        start: "top bottom-=200",
-        ease: "Quint.easeOut",
-        duration: 1,
-      }
-    });
-  
-    tl.from(
-      target,
-      {
-        y: "20rem",
-        opacity: 0
-      },
-      0
-    );
-  });
-
   $("[animation='fade-stagger']").each(function (index) {
     let target = $(this).find("[animation='fade-stagger-el']");
   
     let tl = gsap.timeline({
       scrollTrigger: {
         trigger: $(this),
-        start: "top center",
-        ease: "Quint.easeOut",
+        start: "top bottom-=100",
+        end: "bottom center",
+        scrub: true,
         duration: 1,
-        stagger: {
-            each: 0.1,
-            from: "start"
-          }
+        
       }
     });
   
@@ -192,7 +168,11 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
       target,
       {
         y: "20rem",
-        opacity: 0
+        opacity: 0,
+        stagger: {
+            each: 0.1,
+            from: "start"
+        }
       },
       0
     );
