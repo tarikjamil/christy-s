@@ -77,6 +77,6 @@ window.addEventListener("load", function() {
     $(this).data("clicks", !clicks);
   });
   
-  $(".menu-open-bg").on("click", function () {
-    $(".navbar--menu-trigger").click();
+  $(".menu--bg").on("click", function () {
+    $(".menu--link").click();
   });

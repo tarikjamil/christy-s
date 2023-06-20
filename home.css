@@ -5,3 +5,13 @@
 .loading-parent {
     opacity:1;
 }
+
+  .section.is--loading {
+    position: fixed;
+    width: 100%;
+  }
+
+  .home--parent {
+    display: none;
+    opacity: 0;
+  }
