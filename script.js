@@ -47,6 +47,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     gsap.to('.home--parent', {
         opacity: 1,
         duration: 1,
+        delay: 0.2,
         ease: "Quint.easeOut",
         onStart: function() {
             // Set the display property to block just before the animation starts
@@ -56,6 +57,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     gsap.to('.section.is--loading', {
         opacity: 0,
         duration: 1,
+        delay: 0.2,
         ease: "Quint.easeOut",
         onStart: function() {
             // Set the display property to block just before the animation starts
