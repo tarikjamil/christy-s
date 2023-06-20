@@ -69,25 +69,6 @@ window.addEventListener("load", function() {
 
 document.querySelector('.load--link').addEventListener('click', function(event) {
     event.preventDefault(); // Prevent default action of the link
-    
-    gsap.to('.home--parent', {
-        opacity: 1,
-        duration: 1,
-        delay: 0.2,
-        ease: "Quint.easeOut",
-        height: "auto"
-    });
-    gsap.to('.section.is--loading', {
-        opacity: 0,
-        duration: 1,
-        delay: 0.2,
-        ease: "Quint.easeOut",
-        onComplete: function() {
-            // Set the pointer-events property to none after the animation
-            document.querySelector('.section.is--loading').style.pointerEvents = 'none';
-        }
-    });
-    
     gsap.from("[animation='loadingclick']", {
         opacity: 0,
         y: "20rem",
@@ -96,7 +77,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         stagger: {
             each: 0.1
           },
-        delay: 0.2 // delay in seconds
+        delay: 0.75 // delay in seconds
     });
 });
 
