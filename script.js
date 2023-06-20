@@ -180,9 +180,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
       scrollTrigger: {
         trigger: $(this),
         start: "top bottom-=100",
-        end: "bottom center",
-        scrub: true,
-        
+        end: "bottom center",        
       }
     });
   
@@ -191,6 +189,8 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
       {
         y: "100rem",
         opacity: 0,
+        ease: "Quint.easeOut",
+        duration: 1,
         stagger: {
             each: 0.1,
             from: "start"
