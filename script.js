@@ -34,6 +34,9 @@ window.addEventListener("load", function() {
         y: "20rem",
         ease: "Quint.easeOut",
         duration: 1,
+        stagger: {
+            each: 0.1
+          },
         delay: 4 // delay in seconds
     });
 });
