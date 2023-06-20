@@ -49,22 +49,29 @@ runSplit2();
 
 gsap.registerPlugin(ScrollTrigger);
 
-// page load starts
-gsap.to(".main-wrapper", {
-    opacity: 1,
-    ease: "Quint.easeOut",
-    duration: 0.5
-});
-gsap.from("[animation='loadingclick']", {
-    opacity: 0,
-    y: "20rem",
-    ease: "Quint.easeOut",
-    duration: 1,
-    stagger: {
-        each: 0.1
-      },
-    delay: 0.75 // delay in seconds
-});
+// On Page Load
+function pageLoad() {
+    let tl = gsap.timeline();
+    tl.to(".main-wrapper", {
+        opacity: 1,
+        ease: "Quint.easeOut",
+        duration: 0.5
+    });
+    tl.from("[animation='loadingclick']", {
+        opacity: 0,
+        y: "20rem",
+        ease: "Quint.easeOut",
+        duration: 1,
+        stagger: {
+            each: 0.1
+          },
+        delay: 0.75 // delay in seconds
+    });
+  }
+  pageLoad();
+
+
+
 // split text
   $("[animation='split-stagger-text']").each(function (index) {
 
