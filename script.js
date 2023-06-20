@@ -100,6 +100,8 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         ease: "Quint.easeOut",
         duration: 1,
         scrub: true,
+        start: "top bottom-=200",
+        end: "bottom center",
         stagger: {
           each: 0.1,
           from: "start"
@@ -156,40 +158,6 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
       },
       0
     );
-  });
-
-  // navbar menu hamburger click
-  $(".navbar--menu-trigger").click(function () {
-    var clicks = $(this).data("clicks");
-    if (clicks) {
-      // odd clicks
-      gsap.to(".navlink-parent", {
-        y: "100%",
-        duration: 1,
-        opacity: 0,
-        ease: "Quint.easeOut"
-      });
-    } else {
-      // even clicks
-      gsap.fromTo(
-        ".navlink-parent",
-        {
-          y: "100%",
-          opacity: 0
-        },
-        {
-          duration: 1,
-          delay: 0.5,
-          y: "0%",
-          opacity: 1,
-          ease: "Quint.easeOut",
-          stagger: {
-            each: 0.1
-          }
-        }
-      );
-    }
-    $(this).data("clicks", !clicks);
   });
   
   $(".menu--bg").on("click", function () {
