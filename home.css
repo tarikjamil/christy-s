@@ -12,6 +12,6 @@
   }
 
   .home--parent {
-    display: none;
+    height:100svh;
     opacity: 0;
   }

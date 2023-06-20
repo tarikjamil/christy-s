@@ -75,20 +75,14 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         duration: 1,
         delay: 0.2,
         ease: "Quint.easeOut",
-        onStart: function() {
-            // Set the display property to block just before the animation starts
-            document.querySelector('.home--parent').style.display = 'block';
-        }
+        height: "auto"
     });
     gsap.to('.section.is--loading', {
         opacity: 0,
         duration: 1,
         delay: 0.2,
         ease: "Quint.easeOut",
-        onStart: function() {
-            // Set the display property to block just before the animation starts
-            document.querySelector('.section.is--loading').style.display = 'none';
-        }
+        PointerEvent: "none",
     });
     gsap.from("[animation='loadingclick']", {
         opacity: 0,
