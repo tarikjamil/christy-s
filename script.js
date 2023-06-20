@@ -181,7 +181,6 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
         trigger: $(this),
         start: "top bottom-=100",
         end: "bottom center",
-        duration: 1,
         scrub: true,
         
       }
