@@ -1,3 +1,19 @@
+// split start
+let text;
+
+// Split the text up
+function runSplit() {
+  text = new SplitType("[animation='split-stagger-text']", {
+    types: "lines, words",
+    lineClass: "split-line",
+    wordClass: "is--scroll-intoview-scrub"
+  });
+}
+
+runSplit();
+
+// split type ends
+
 gsap.registerPlugin(ScrollTrigger);
 
 // page load starts
@@ -86,6 +102,29 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     });
 });
 
+// split text
+$("[animation='split-stagger-text']").each(function (index) {
+    let target = $(this).find(".is--scroll-intoview-scrub");
+  
+    let tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: $(this),
+        start: "top center",
+        end: "bottom center",
+        ease: "Quint.easeOut",
+        duration: 1,
+        scrub: true
+      }
+    });
+  
+    tl.from(
+      target,
+      {
+        y: "-100%"
+      },
+      0
+    );
+  });
 
   // navbar menu hamburger click
   $(".navbar--menu-trigger").click(function () {
