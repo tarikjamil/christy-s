@@ -91,7 +91,7 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
     });
 });
 
-d document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function() {
   const images = document.querySelectorAll('.logo--loading');
   const duration = 1; // Animation duration for each image in seconds
 
