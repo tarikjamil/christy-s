@@ -73,8 +73,8 @@ $("[animation='split-stagger-text']").each(function (index) {
   );
 });
 
-$("[animation='split-stagger-line']").each(function (index) {
-  let target = $(this).find(".split-line");
+$(".split-line").each(function (index) {
+  let target = $(this);
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: $(this),
