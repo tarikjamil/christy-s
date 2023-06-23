@@ -1,9 +1,9 @@
-.main-wrapper{
-    opacity: 0;
+.main-wrapper {
+  opacity: 0;
 }
 
-.split-line{
-    overflow: hidden;
+.split-line {
+  overflow: hidden;
 }
 
 html.lenis {
@@ -23,5 +23,5 @@ html.lenis {
 }
 
 .lenis.lenis-scrolling iframe {
-   pointer-events: none;
-} 
+  pointer-events: none;
+}
