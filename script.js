@@ -32,7 +32,7 @@ gsap.to(".main-wrapper", {
     ease: "Quint.easeOut",
     duration: 0.5
 });
-gsap.from(".logo--loading", {
+gsap.from(".loading--logo-wrapper", {
     opacity: 0,
     y: "20rem",
     ease: "Quint.easeOut",
@@ -89,6 +89,18 @@ document.querySelector('.load--link').addEventListener('click', function(event) 
           },
         delay: 0.75 // delay in seconds
     });
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  const images = document.querySelectorAll('.logo--loading');
+  const duration = 1; // Animation duration for each image in seconds
+
+  const tl = gsap.timeline({ repeat: -1 }); // Loop infinitely
+
+  images.forEach((img, index) => {
+    tl.to(img, { opacity: 1, duration: duration, ease: "none" }, index * duration)
+      .to(img, { opacity: 0, duration: duration, ease: "none" }, (index + 1) * duration);
+  });
 });
 
 // split text
