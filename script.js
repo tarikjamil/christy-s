@@ -95,13 +95,23 @@ document.addEventListener("DOMContentLoaded", function() {
   const images = document.querySelectorAll('.logo--loading');
   const duration = 1; // Animation duration for each image in seconds
 
-  const tl = gsap.timeline({ repeat: -1 }); // Loop infinitely
+  const loopTl = gsap.timeline({ repeat: -1 }); // Loop infinitely with a separate timeline
 
   images.forEach((img, index) => {
-    tl.to(img, { opacity: 1, duration: duration, ease: "none" }, index * duration)
-      .to(img, { opacity: 0, duration: duration, ease: "none" }, (index + 1) * duration);
+    loopTl.fromTo(
+      img,
+      { opacity: 0 },
+      { opacity: 1, duration: duration, ease: "none" },
+      index * duration
+    );
+    loopTl.to(
+      img,
+      { opacity: 0, duration: duration, ease: "none" },
+      (index + 1) * duration - 0.01
+    );
   });
 });
+
 
 // split text
   $("[animation='split-stagger-text']").each(function (index) {
