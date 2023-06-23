@@ -62,7 +62,6 @@ $("[animation='split-stagger-text']").each(function (index) {
     target,
     {
       y: "100%",
-      opacity: 0,
       ease: "Quint.easeOut",
       duration: 1,
       stagger: {
