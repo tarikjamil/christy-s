@@ -32,6 +32,11 @@ gsap.to(".main-wrapper", {
     ease: "Quint.easeOut",
     duration: 0.5
 });
+gsap.to(".loading--logo-wrapper", {
+  scale: 0.4,
+  ease: "linear",
+  duration: 40
+});
 
 // page finish loading
 window.addEventListener("load", function() {
