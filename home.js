@@ -108,33 +108,6 @@ function pageLoad() {
     
   });
 
-  $("[animation='fade-stagger']").each(function (index) {
-    let target = $(this).find("[animation='fade-stagger-el']");
-  
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: $(this),
-        start: "top bottom-=100",
-        end: "bottom center",        
-      }
-    });
-  
-    tl.from(
-      target,
-      {
-        y: "100rem",
-        opacity: 0,
-        ease: "Quint.easeOut",
-        duration: 1,
-        stagger: {
-            each: 0.1,
-            from: "start"
-        }
-      },
-      0
-    );
-  });
-
   $("[animation='parallax-wrapper']").each(function (index) {
     let target = $(this).find("[animation='parallax']");
   
