@@ -117,6 +117,7 @@ $("[animation='parallax-wrapper']").each(function (index) {
     target,
     {
       y: "-10%",
+      scale: 1.1,
     },
     0
   );
