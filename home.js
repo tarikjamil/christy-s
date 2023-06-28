@@ -168,6 +168,33 @@ $("[animation='bam-parent']").each(function (index) {
   );
 });
 
+const movieItems = document.getElementsByClassName("home--movie-item");
+
+// List of poster URLs
+const posterURLs = [
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f653e4af2479fdbb108_CSTY-001_Credits_Film_SlingBlade.jpg",
+];
+
+// Attach event listeners for hover effect on movie items
+for (let i = 0; i < movieItems.length; i++) {
+  const item = movieItems[i];
+
+  item.addEventListener("mouseenter", function () {
+    const poster = item.querySelector(".home--movie-poster");
+    const randomIndex = Math.floor(Math.random() * posterURLs.length);
+    const randomURL = posterURLs[randomIndex];
+    poster.src = randomURL;
+  });
+
+  item.addEventListener("mouseleave", function () {
+    const poster = item.querySelector(".home--movie-poster");
+    poster.src = "default-poster.jpg";
+  });
+}
+
 // slider
 document.addEventListener("DOMContentLoaded", function () {
   let splide = new Splide(".slider1", {
@@ -184,32 +211,3 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   splide.mount();
 });
-
-const movieItems = document.getElementsByClassName("home--movie-item");
-
-for (let i = 0; i < movieItems.length; i++) {
-  const item = movieItems[i];
-  const images = item.getElementsByTagName("img");
-
-  // Attach event listeners for hover effect on the movie item
-  item.addEventListener("mouseenter", function () {
-    // Add animation class to the relevant elements
-    item.classList.add("animate-light");
-  });
-
-  item.addEventListener("mouseleave", function () {
-    // Remove animation class from the relevant elements
-    item.classList.remove("animate-light");
-  });
-
-  // Attach event listeners for hover effect on individual images
-  for (let j = 0; j < images.length; j++) {
-    images[j].addEventListener("mouseenter", function () {
-      this.style.opacity = "1";
-    });
-
-    images[j].addEventListener("mouseleave", function () {
-      this.style.opacity = "0";
-    });
-  }
-}
