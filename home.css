@@ -5,3 +5,7 @@
 .loading-parent {
   opacity: 1;
 }
+
+.splide__track {
+  overflow: visible;
+}

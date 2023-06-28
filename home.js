@@ -167,3 +167,20 @@ $("[animation='bam-parent']").each(function (index) {
     0
   );
 });
+
+// slider
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".slider1", {
+    type: "fade",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    breakpoints: {
+      991: {
+        // Tablet
+        arrows: false,
+      },
+    },
+  });
+  splide.mount();
+});
