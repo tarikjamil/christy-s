@@ -188,8 +188,40 @@ document.addEventListener("DOMContentLoaded", function () {
 const movieItems = document.getElementsByClassName("home--movie-item");
 
 for (let i = 0; i < movieItems.length; i++) {
-  const images = movieItems[i].getElementsByTagName("img");
+  const item = movieItems[i];
+  const images = item.getElementsByTagName("img");
+  const lightElements = item.getElementsByClassName("home--movie--light");
+  const posterElements = item.getElementsByClassName("home--movie-poster");
+  const cadreElements = item.getElementsByClassName("home--movie--cadre");
 
+  // Attach event listeners for hover effect on the movie item
+  item.addEventListener("mouseenter", function () {
+    // Add animation classes to the relevant elements
+    for (let j = 0; j < lightElements.length; j++) {
+      lightElements[j].classList.add("animate-light");
+    }
+    for (let j = 0; j < posterElements.length; j++) {
+      posterElements[j].classList.add("animate-poster");
+    }
+    for (let j = 0; j < cadreElements.length; j++) {
+      cadreElements[j].classList.add("animate-cadre");
+    }
+  });
+
+  item.addEventListener("mouseleave", function () {
+    // Remove animation classes from the relevant elements
+    for (let j = 0; j < lightElements.length; j++) {
+      lightElements[j].classList.remove("animate-light");
+    }
+    for (let j = 0; j < posterElements.length; j++) {
+      posterElements[j].classList.remove("animate-poster");
+    }
+    for (let j = 0; j < cadreElements.length; j++) {
+      cadreElements[j].classList.remove("animate-cadre");
+    }
+  });
+
+  // Attach event listeners for hover effect on individual images
   for (let j = 0; j < images.length; j++) {
     images[j].addEventListener("mouseenter", function () {
       this.style.opacity = "1";
