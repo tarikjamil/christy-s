@@ -179,9 +179,7 @@ const posterURLs = [
 ];
 
 // Attach event listeners for hover effect on movie items
-for (let i = 0; i < movieItems.length; i++) {
-  const item = movieItems[i];
-
+Array.from(movieItems).forEach((item) => {
   item.addEventListener("mouseenter", function () {
     const poster = item.querySelector(".home--movie-poster");
     const randomIndex = Math.floor(Math.random() * posterURLs.length);
@@ -193,4 +191,4 @@ for (let i = 0; i < movieItems.length; i++) {
     const poster = item.querySelector(".home--movie-poster");
     poster.src = "default-poster.jpg";
   });
-}
+});
