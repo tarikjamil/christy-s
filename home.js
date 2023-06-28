@@ -124,8 +124,8 @@ $("[animation='parallax-wrapper']").each(function (index) {
 
 $("[animation='bam-parent']").each(function (index) {
   let persona = $(this).find(".bam--persona");
-  let bubble = $(this).find(".bam--text-wrapper']");
-  let crack = $(this).find(".home--bam-shape']");
+  let bubble = $(this).find(".bam--text-wrapper");
+  let crack = $(this).find(".home--bam-shape");
 
   let tl = gsap.timeline({
     scrollTrigger: {
