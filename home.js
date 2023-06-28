@@ -184,3 +184,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   splide.mount();
 });
+
+const movieItems = document.getElementsByClassName("home--movie-item");
+
+for (let i = 0; i < movieItems.length; i++) {
+  const images = movieItems[i].getElementsByTagName("img");
+
+  for (let j = 0; j < images.length; j++) {
+    images[j].addEventListener("mouseenter", function () {
+      this.style.opacity = "1";
+    });
+
+    images[j].addEventListener("mouseleave", function () {
+      this.style.opacity = "0";
+    });
+  }
+}
