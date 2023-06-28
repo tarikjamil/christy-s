@@ -194,20 +194,3 @@ for (let i = 0; i < movieItems.length; i++) {
     poster.src = "default-poster.jpg";
   });
 }
-
-// slider
-document.addEventListener("DOMContentLoaded", function () {
-  let splide = new Splide(".slider1", {
-    type: "slide",
-    perPage: 1,
-    perMove: 1,
-    gap: "24rem",
-    breakpoints: {
-      991: {
-        // Tablet
-        arrows: false,
-      },
-    },
-  });
-  splide.mount();
-});
