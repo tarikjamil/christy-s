@@ -176,14 +176,14 @@ const posterURLs = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f653e4af2479fdbb108_CSTY-001_Credits_Film_SlingBlade.jpg",
-  "poster",
-  "poster",
-  "poster",
-  "poster",
-  "poster",
-  "poster",
-  "poster",
-  "poster",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dc178a1d1381579fc0_Christys_Credit_JimJeffriesShow.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcb678fdb6afe9da6e_CSTY-001_Credits_WafflesnMochi.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcfe99682305198360_CSTY-001_Credits_Avatar.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcfcc9c82581f405f7_CSTY-001_Credits_Film_DarkKnight.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646178a1d1381582903_Poster_JoeVsCarole.jpeg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c36460692de20732b88b7_CSTY-001_Credits_TheFWord.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646d6cdd13d3beb364d_CSTY-001_Credits_XTremeWeightLoss.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646433fb54b2b776712_CSTY-001_UndercoverBoss.jpg",
 ];
 
 // Track previously used image indexes
