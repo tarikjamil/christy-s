@@ -190,35 +190,16 @@ const movieItems = document.getElementsByClassName("home--movie-item");
 for (let i = 0; i < movieItems.length; i++) {
   const item = movieItems[i];
   const images = item.getElementsByTagName("img");
-  const lightElements = item.getElementsByClassName("home--movie--light");
-  const posterElements = item.getElementsByClassName("home--movie-poster");
-  const cadreElements = item.getElementsByClassName("home--movie--cadre");
 
   // Attach event listeners for hover effect on the movie item
   item.addEventListener("mouseenter", function () {
-    // Add animation classes to the relevant elements
-    for (let j = 0; j < lightElements.length; j++) {
-      lightElements[j].classList.add("animate-light");
-    }
-    for (let j = 0; j < posterElements.length; j++) {
-      posterElements[j].classList.add("animate-poster");
-    }
-    for (let j = 0; j < cadreElements.length; j++) {
-      cadreElements[j].classList.add("animate-cadre");
-    }
+    // Add animation class to the relevant elements
+    item.classList.add("animate-light");
   });
 
   item.addEventListener("mouseleave", function () {
-    // Remove animation classes from the relevant elements
-    for (let j = 0; j < lightElements.length; j++) {
-      lightElements[j].classList.remove("animate-light");
-    }
-    for (let j = 0; j < posterElements.length; j++) {
-      posterElements[j].classList.remove("animate-poster");
-    }
-    for (let j = 0; j < cadreElements.length; j++) {
-      cadreElements[j].classList.remove("animate-cadre");
-    }
+    // Remove animation class from the relevant elements
+    item.classList.remove("animate-light");
   });
 
   // Attach event listeners for hover effect on individual images
