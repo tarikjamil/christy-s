@@ -171,7 +171,7 @@ $("[animation='bam-parent']").each(function (index) {
 // slider
 document.addEventListener("DOMContentLoaded", function () {
   let splide = new Splide(".slider1", {
-    type: "fade",
+    type: "slide",
     perPage: 1,
     perMove: 1,
     gap: "24rem",
