@@ -176,6 +176,14 @@ const posterURLs = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f653e4af2479fdbb108_CSTY-001_Credits_Film_SlingBlade.jpg",
+  "poster",
+  "poster",
+  "poster",
+  "poster",
+  "poster",
+  "poster",
+  "poster",
+  "poster",
 ];
 
 // Track previously used image indexes
