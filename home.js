@@ -178,11 +178,25 @@ const posterURLs = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f653e4af2479fdbb108_CSTY-001_Credits_Film_SlingBlade.jpg",
 ];
 
+// Track previously used image indexes
+let prevIndexes = [];
+
 // Attach event listeners for hover effect on movie items
 Array.from(movieItems).forEach((item) => {
   item.addEventListener("mouseenter", function () {
     const poster = item.querySelector(".home--movie-poster");
-    const randomIndex = Math.floor(Math.random() * posterURLs.length);
+    let randomIndex = getRandomIndex();
+
+    // Ensure the image is not reused immediately
+    while (prevIndexes.includes(randomIndex)) {
+      randomIndex = getRandomIndex();
+    }
+
+    prevIndexes.push(randomIndex);
+    if (prevIndexes.length > 2) {
+      prevIndexes.shift();
+    }
+
     const randomURL = posterURLs[randomIndex];
     poster.src = randomURL;
   });
@@ -192,3 +206,8 @@ Array.from(movieItems).forEach((item) => {
     poster.src = "default-poster.jpg";
   });
 });
+
+// Function to get random image index
+function getRandomIndex() {
+  return Math.floor(Math.random() * posterURLs.length);
+}
