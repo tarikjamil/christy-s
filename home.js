@@ -243,14 +243,18 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentSlideSpan = document.querySelector(".current-slide");
   const totalSlidesSpan = document.querySelector(".total-slides");
 
+  function formatSlideNumber(num) {
+    return num.toString().padStart(2, "0");
+  }
+
   splide.on("moved", function (newIndex) {
     const totalSlides = splide.length;
     const currentSlide = newIndex + 1;
     const progressPercentage = (currentSlide / totalSlides) * 100;
 
     progressBar.style.width = `${progressPercentage}%`;
-    currentSlideSpan.textContent = currentSlide;
-    totalSlidesSpan.textContent = totalSlides;
+    currentSlideSpan.textContent = formatSlideNumber(currentSlide);
+    totalSlidesSpan.textContent = formatSlideNumber(totalSlides);
   });
 
   splide.mount();
