@@ -219,3 +219,23 @@ Array.from(movieItems).forEach((item) => {
 function getRandomIndex() {
   return Math.floor(Math.random() * posterURLs.length);
 }
+
+// slider success stories
+document.addEventListener("DOMContentLoaded", function () {
+  let splide = new Splide(".slider1", {
+    type: "fade",
+    perPage: 1,
+    perMove: 1,
+    gap: "24rem",
+    arrows: false,
+    pagination: false,
+    breakpoints: {
+      991: {
+        // Tablet
+        gap: "24rem",
+        drag: true,
+      },
+    },
+  });
+  splide.mount();
+});
