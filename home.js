@@ -239,11 +239,16 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const sliderProgress = document.querySelector(".slider-progress");
+  const progressBar = document.querySelector(".progress-bar");
+  const progressText = document.querySelector(".progress-text");
 
   splide.on("moved", function (newIndex) {
     const totalSlides = splide.length;
     const currentSlide = newIndex + 1;
-    sliderProgress.textContent = `${currentSlide}/${totalSlides}`;
+    const progressPercentage = (currentSlide / totalSlides) * 100;
+
+    progressBar.style.width = `${progressPercentage}%`;
+    progressText.textContent = `${currentSlide}/${totalSlides}`;
   });
 
   splide.mount();
