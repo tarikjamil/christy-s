@@ -240,7 +240,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const sliderProgress = document.querySelector(".slider-progress");
   const progressBar = document.querySelector(".progress-bar");
-  const progressText = document.querySelector(".progress-text");
+  const currentSlideSpan = document.querySelector(".current-slide");
+  const totalSlidesSpan = document.querySelector(".total-slides");
 
   splide.on("moved", function (newIndex) {
     const totalSlides = splide.length;
@@ -248,7 +249,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const progressPercentage = (currentSlide / totalSlides) * 100;
 
     progressBar.style.width = `${progressPercentage}%`;
-    progressText.textContent = `${currentSlide}/${totalSlides}`;
+    currentSlideSpan.textContent = currentSlide;
+    totalSlidesSpan.textContent = totalSlides;
   });
 
   splide.mount();
