@@ -237,5 +237,14 @@ document.addEventListener("DOMContentLoaded", function () {
       },
     },
   });
+
+  const sliderProgress = document.querySelector(".slider-progress");
+
+  splide.on("moved", function (newIndex) {
+    const totalSlides = splide.length;
+    const currentSlide = newIndex + 1;
+    sliderProgress.textContent = `${currentSlide}/${totalSlides}`;
+  });
+
   splide.mount();
 });
