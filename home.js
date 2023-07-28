@@ -168,10 +168,10 @@ $("[animation='bam-parent']").each(function (index) {
   );
 });
 
-let movieItems1 = document.getElementsByClassName("home--movie-item-1");
+const movieItems1 = document.getElementsByClassName("home--movie-item-1");
 
 // List of poster URLs
-let posterURLs1 = [
+const posterURLs1 = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -187,13 +187,13 @@ let posterURLs1 = [
 ];
 
 // Track previously used image indexes
-let prevIndexes1 = [];
+const prevIndexes1 = [];
 
 // Attach event listeners for hover effect on movie items
 Array.from(movieItems1).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    let poster1 = item.querySelector(".home--movie-poster-1");
-    let randomIndex1 = getRandomIndex1();
+    const poster1 = item.querySelector(".home--movie-poster-1");
+    const randomIndex1 = getRandomIndex1();
 
     // Ensure the image is not reused immediately
     while (prevIndexes1.includes(randomIndex1)) {
@@ -205,12 +205,12 @@ Array.from(movieItems1).forEach((item) => {
       prevIndexes1.shift();
     }
 
-    let randomURL1 = posterURLs1[randomIndex1];
+    const randomURL1 = posterURLs1[randomIndex1];
     poster1.src = randomURL1;
   });
 
   item.addEventListener("mouseleave", function () {
-    let poster1 = item.querySelector(".home--movie-item-1");
+    const poster1 = item.querySelector(".home--movie-item-1");
     poster1.src = "default-poster.jpg";
   });
 });
@@ -221,10 +221,10 @@ function getRandomIndex1() {
 }
 
 // second
-let movieItems2 = document.getElementsByClassName("home--movie-item-2");
+const movieItems2 = document.getElementsByClassName("home--movie-item-2");
 
 // List of poster URLs
-let posterURLs2 = [
+const posterURLs2 = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -240,13 +240,13 @@ let posterURLs2 = [
 ];
 
 // Track previously used image indexes
-let prevIndexes2 = [];
+const prevIndexes2 = [];
 
 // Attach event listeners for hover effect on movie items
 Array.from(movieItems2).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    let poster = item.querySelector(".home--movie-poster-2");
-    let randomIndex2 = getRandomIndex2();
+    const poster2 = item.querySelector(".home--movie-poster-2");
+    const randomIndex2 = getRandomIndex2();
 
     // Ensure the image is not reused immediately
     while (prevIndexes2.includes(randomIndex)) {
@@ -258,12 +258,12 @@ Array.from(movieItems2).forEach((item) => {
       prevIndexes2.shift();
     }
 
-    let randomURL2 = posterURLs2[randomIndex2];
+    const randomURL2 = posterURLs2[randomIndex2];
     poster2.src = randomURL2;
   });
 
   item.addEventListener("mouseleave", function () {
-    let poster2 = item.querySelector(".home--movie-item-2");
+    const poster2 = item.querySelector(".home--movie-item-2");
     poster2.src = "default-poster.jpg";
   });
 });
@@ -274,10 +274,10 @@ function getRandomIndex2() {
 }
 
 // third
-let movieItems3 = document.getElementsByClassName("home--movie-item-3");
+const movieItems3 = document.getElementsByClassName("home--movie-item-3");
 
 // List of poster URLs
-let posterURLs3 = [
+const posterURLs3 = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -293,13 +293,13 @@ let posterURLs3 = [
 ];
 
 // Track previously used image indexes
-let prevIndexes3 = [];
+const prevIndexes3 = [];
 
 // Attach event listeners for hover effect on movie items
 Array.from(movieItems3).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    let poster3 = item.querySelector(".home--movie-poster-3");
-    let randomIndex3 = getRandomIndex3();
+    const poster3 = item.querySelector(".home--movie-poster-3");
+    const randomIndex3 = getRandomIndex3();
 
     // Ensure the image is not reused immediately
     while (prevIndexes3.includes(randomIndex3)) {
@@ -311,13 +311,13 @@ Array.from(movieItems3).forEach((item) => {
       prevIndexes3.shift();
     }
 
-    let randomURL3 = posterURLs3[randomIndex3];
+    const randomURL3 = posterURLs3[randomIndex3];
     poster3.src = randomURL3;
   });
 
   item.addEventListener("mouseleave", function () {
-    let poster = item.querySelector(".home--movie-item-3");
-    poster.src = "default-poster.jpg";
+    const poster3 = item.querySelector(".home--movie-item-3");
+    poster3.src = "default-poster.jpg";
   });
 });
 
