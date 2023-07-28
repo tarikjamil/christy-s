@@ -306,7 +306,7 @@ Array.from(movieItems3).forEach((item) => {
       randomIndex3 = getRandomIndex3();
     }
 
-    prevIndexes.push(randomIndex);
+    prevIndexes3.push(randomIndex);
     if (prevIndexes3.length > 2) {
       prevIndexes3.shift();
     }
