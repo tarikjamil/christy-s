@@ -168,7 +168,7 @@ $("[animation='bam-parent']").each(function (index) {
   );
 });
 
-const movieItems = document.getElementsByClassName("home--movie-item");
+const movieItems = document.getElementsByClassName("home--movie-item.is--1");
 
 // List of poster URLs
 const posterURLs = [
@@ -192,7 +192,7 @@ let prevIndexes = [];
 // Attach event listeners for hover effect on movie items
 Array.from(movieItems).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    const poster = item.querySelector(".home--movie-poster");
+    const poster = item.querySelector(".home--movie-poster.is--1");
     let randomIndex = getRandomIndex();
 
     // Ensure the image is not reused immediately
@@ -210,7 +210,7 @@ Array.from(movieItems).forEach((item) => {
   });
 
   item.addEventListener("mouseleave", function () {
-    const poster = item.querySelector(".home--movie-poster");
+    const poster = item.querySelector(".home--movie-poster.is--1");
     poster.src = "default-poster.jpg";
   });
 });
