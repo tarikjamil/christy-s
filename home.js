@@ -249,7 +249,7 @@ Array.from(movieItems2).forEach((item) => {
     const randomIndex2 = getRandomIndex2();
 
     // Ensure the image is not reused immediately
-    while (prevIndexes2.includes(randomIndex)) {
+    while (prevIndexes2.includes(randomIndex2)) {
       randomIndex2 = getRandomIndex2();
     }
 
