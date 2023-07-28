@@ -200,7 +200,7 @@ Array.from(movieItems1).forEach((item) => {
       randomIndex1 = getRandomIndex1();
     }
 
-    prevIndexes1.push(randomIndex);
+    prevIndexes1.push(randomIndex1);
     if (prevIndexes1.length > 2) {
       prevIndexes1.shift();
     }
@@ -246,7 +246,7 @@ let prevIndexes2 = [];
 Array.from(movieItems2).forEach((item) => {
   item.addEventListener("mouseenter", function () {
     let poster = item.querySelector(".home--movie-poster-2");
-    let randomIndex = getRandomIndex2();
+    let randomIndex2 = getRandomIndex2();
 
     // Ensure the image is not reused immediately
     while (prevIndexes2.includes(randomIndex)) {
