@@ -168,10 +168,10 @@ $("[animation='bam-parent']").each(function (index) {
   );
 });
 
-const movieItems = document.getElementsByClassName("home--movie-item-1");
+let movieItems = document.getElementsByClassName("home--movie-item-1");
 
 // List of poster URLs
-const posterURLs = [
+let posterURLs = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -192,7 +192,7 @@ let prevIndexes = [];
 // Attach event listeners for hover effect on movie items
 Array.from(movieItems).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    const poster = item.querySelector(".home--movie-poster-1");
+    let poster = item.querySelector(".home--movie-poster-1");
     let randomIndex = getRandomIndex();
 
     // Ensure the image is not reused immediately
@@ -205,12 +205,118 @@ Array.from(movieItems).forEach((item) => {
       prevIndexes.shift();
     }
 
-    const randomURL = posterURLs[randomIndex];
+    let randomURL = posterURLs[randomIndex];
     poster.src = randomURL;
   });
 
   item.addEventListener("mouseleave", function () {
-    const poster = item.querySelector(".home--movie-item-1");
+    let poster = item.querySelector(".home--movie-item-1");
+    poster.src = "default-poster.jpg";
+  });
+});
+
+// Function to get random image index
+function getRandomIndex() {
+  return Math.floor(Math.random() * posterURLs.length);
+}
+
+// second
+let movieItems = document.getElementsByClassName("home--movie-item-2");
+
+// List of poster URLs
+let posterURLs = [
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f653e4af2479fdbb108_CSTY-001_Credits_Film_SlingBlade.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dc178a1d1381579fc0_Christys_Credit_JimJeffriesShow.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcb678fdb6afe9da6e_CSTY-001_Credits_WafflesnMochi.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcfe99682305198360_CSTY-001_Credits_Avatar.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcfcc9c82581f405f7_CSTY-001_Credits_Film_DarkKnight.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646178a1d1381582903_Poster_JoeVsCarole.jpeg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c36460692de20732b88b7_CSTY-001_Credits_TheFWord.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646d6cdd13d3beb364d_CSTY-001_Credits_XTremeWeightLoss.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646433fb54b2b776712_CSTY-001_UndercoverBoss.jpg",
+];
+
+// Track previously used image indexes
+let prevIndexes = [];
+
+// Attach event listeners for hover effect on movie items
+Array.from(movieItems).forEach((item) => {
+  item.addEventListener("mouseenter", function () {
+    let poster = item.querySelector(".home--movie-poster-2");
+    let randomIndex = getRandomIndex();
+
+    // Ensure the image is not reused immediately
+    while (prevIndexes.includes(randomIndex)) {
+      randomIndex = getRandomIndex();
+    }
+
+    prevIndexes.push(randomIndex);
+    if (prevIndexes.length > 2) {
+      prevIndexes.shift();
+    }
+
+    let randomURL = posterURLs[randomIndex];
+    poster.src = randomURL;
+  });
+
+  item.addEventListener("mouseleave", function () {
+    let poster = item.querySelector(".home--movie-item-2");
+    poster.src = "default-poster.jpg";
+  });
+});
+
+// Function to get random image index
+function getRandomIndex() {
+  return Math.floor(Math.random() * posterURLs.length);
+}
+
+// third
+let movieItems = document.getElementsByClassName("home--movie-item-3");
+
+// List of poster URLs
+let posterURLs = [
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f653e4af2479fdbb108_CSTY-001_Credits_Film_SlingBlade.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dc178a1d1381579fc0_Christys_Credit_JimJeffriesShow.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcb678fdb6afe9da6e_CSTY-001_Credits_WafflesnMochi.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcfe99682305198360_CSTY-001_Credits_Avatar.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c35dcfcc9c82581f405f7_CSTY-001_Credits_Film_DarkKnight.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646178a1d1381582903_Poster_JoeVsCarole.jpeg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c36460692de20732b88b7_CSTY-001_Credits_TheFWord.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646d6cdd13d3beb364d_CSTY-001_Credits_XTremeWeightLoss.jpg",
+  "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c3646433fb54b2b776712_CSTY-001_UndercoverBoss.jpg",
+];
+
+// Track previously used image indexes
+let prevIndexes = [];
+
+// Attach event listeners for hover effect on movie items
+Array.from(movieItems).forEach((item) => {
+  item.addEventListener("mouseenter", function () {
+    let poster = item.querySelector(".home--movie-poster-3");
+    let randomIndex = getRandomIndex();
+
+    // Ensure the image is not reused immediately
+    while (prevIndexes.includes(randomIndex)) {
+      randomIndex = getRandomIndex();
+    }
+
+    prevIndexes.push(randomIndex);
+    if (prevIndexes.length > 2) {
+      prevIndexes.shift();
+    }
+
+    let randomURL = posterURLs[randomIndex];
+    poster.src = randomURL;
+  });
+
+  item.addEventListener("mouseleave", function () {
+    let poster = item.querySelector(".home--movie-item-3");
     poster.src = "default-poster.jpg";
   });
 });
@@ -238,19 +344,19 @@ document.addEventListener("DOMContentLoaded", function () {
     },
   });
 
-  const sliderProgress = document.querySelector(".slider-progress");
-  const progressBar = document.querySelector(".progress-bar");
-  const currentSlideSpan = document.querySelector(".current-slide");
-  const totalSlidesSpan = document.querySelector(".total-slides");
+  let sliderProgress = document.querySelector(".slider-progress");
+  let progressBar = document.querySelector(".progress-bar");
+  let currentSlideSpan = document.querySelector(".current-slide");
+  let totalSlidesSpan = document.querySelector(".total-slides");
 
   function formatSlideNumber(num) {
     return num.toString().padStart(2, "0");
   }
 
   splide.on("moved", function (newIndex) {
-    const totalSlides = splide.length;
-    const currentSlide = newIndex + 1;
-    const progressPercentage = (currentSlide / totalSlides) * 100;
+    let totalSlides = splide.length;
+    let currentSlide = newIndex + 1;
+    let progressPercentage = (currentSlide / totalSlides) * 100;
 
     progressBar.style.width = `${progressPercentage}%`;
     currentSlideSpan.textContent = formatSlideNumber(currentSlide);
