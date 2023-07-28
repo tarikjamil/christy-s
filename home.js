@@ -269,7 +269,7 @@ Array.from(movieItems2).forEach((item) => {
 });
 
 // Function to get random image index
-function getRandomIndex() {
+function getRandomIndex2() {
   return Math.floor(Math.random() * posterURLs2.length);
 }
 
@@ -299,11 +299,11 @@ let prevIndexes3 = [];
 Array.from(movieItems3).forEach((item) => {
   item.addEventListener("mouseenter", function () {
     let poster3 = item.querySelector(".home--movie-poster-3");
-    let randomIndex3 = getRandomIndex();
+    let randomIndex3 = getRandomIndex3();
 
     // Ensure the image is not reused immediately
     while (prevIndexes3.includes(randomIndex3)) {
-      randomIndex3 = getRandomIndex();
+      randomIndex3 = getRandomIndex3();
     }
 
     prevIndexes.push(randomIndex);
