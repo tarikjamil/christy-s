@@ -168,10 +168,10 @@ $("[animation='bam-parent']").each(function (index) {
   );
 });
 
-let movieItems = document.getElementsByClassName("home--movie-item-1");
+let movieItems1 = document.getElementsByClassName("home--movie-item-1");
 
 // List of poster URLs
-let posterURLs = [
+let posterURLs1 = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -187,44 +187,44 @@ let posterURLs = [
 ];
 
 // Track previously used image indexes
-let prevIndexes = [];
+let prevIndexes1 = [];
 
 // Attach event listeners for hover effect on movie items
-Array.from(movieItems).forEach((item) => {
+Array.from(movieItems1).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    let poster = item.querySelector(".home--movie-poster-1");
-    let randomIndex = getRandomIndex();
+    let poster1 = item.querySelector(".home--movie-poster-1");
+    let randomIndex1 = getRandomIndex1();
 
     // Ensure the image is not reused immediately
-    while (prevIndexes.includes(randomIndex)) {
-      randomIndex = getRandomIndex();
+    while (prevIndexes1.includes(randomIndex1)) {
+      randomIndex1 = getRandomIndex1();
     }
 
-    prevIndexes.push(randomIndex);
-    if (prevIndexes.length > 2) {
-      prevIndexes.shift();
+    prevIndexes1.push(randomIndex);
+    if (prevIndexes1.length > 2) {
+      prevIndexes1.shift();
     }
 
-    let randomURL = posterURLs[randomIndex];
-    poster.src = randomURL;
+    let randomURL1 = posterURLs1[randomIndex1];
+    poster1.src = randomURL1;
   });
 
   item.addEventListener("mouseleave", function () {
-    let poster = item.querySelector(".home--movie-item-1");
-    poster.src = "default-poster.jpg";
+    let poster1 = item.querySelector(".home--movie-item-1");
+    poster1.src = "default-poster.jpg";
   });
 });
 
 // Function to get random image index
-function getRandomIndex() {
-  return Math.floor(Math.random() * posterURLs.length);
+function getRandomIndex1() {
+  return Math.floor(Math.random() * posterURLs1.length);
 }
 
 // second
-let movieItems = document.getElementsByClassName("home--movie-item-2");
+let movieItems2 = document.getElementsByClassName("home--movie-item-2");
 
 // List of poster URLs
-let posterURLs = [
+let posterURLs2 = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -240,44 +240,44 @@ let posterURLs = [
 ];
 
 // Track previously used image indexes
-let prevIndexes = [];
+let prevIndexes2 = [];
 
 // Attach event listeners for hover effect on movie items
-Array.from(movieItems).forEach((item) => {
+Array.from(movieItems2).forEach((item) => {
   item.addEventListener("mouseenter", function () {
     let poster = item.querySelector(".home--movie-poster-2");
-    let randomIndex = getRandomIndex();
+    let randomIndex = getRandomIndex2();
 
     // Ensure the image is not reused immediately
-    while (prevIndexes.includes(randomIndex)) {
-      randomIndex = getRandomIndex();
+    while (prevIndexes2.includes(randomIndex)) {
+      randomIndex2 = getRandomIndex2();
     }
 
-    prevIndexes.push(randomIndex);
-    if (prevIndexes.length > 2) {
-      prevIndexes.shift();
+    prevIndexes2.push(randomIndex2);
+    if (prevIndexes2.length > 2) {
+      prevIndexes2.shift();
     }
 
-    let randomURL = posterURLs[randomIndex];
-    poster.src = randomURL;
+    let randomURL2 = posterURLs2[randomIndex2];
+    poster2.src = randomURL2;
   });
 
   item.addEventListener("mouseleave", function () {
-    let poster = item.querySelector(".home--movie-item-2");
-    poster.src = "default-poster.jpg";
+    let poster2 = item.querySelector(".home--movie-item-2");
+    poster2.src = "default-poster.jpg";
   });
 });
 
 // Function to get random image index
 function getRandomIndex() {
-  return Math.floor(Math.random() * posterURLs.length);
+  return Math.floor(Math.random() * posterURLs2.length);
 }
 
 // third
-let movieItems = document.getElementsByClassName("home--movie-item-3");
+let movieItems3 = document.getElementsByClassName("home--movie-item-3");
 
 // List of poster URLs
-let posterURLs = [
+let posterURLs3 = [
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f656e9ad48f04abc935_CSTY-001_Credits_Film_TheRightStuff2.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65e477d081c95fa8bc_Christys_Credit_Dunkirk.jpg",
   "https://uploads-ssl.webflow.com/64897164d5ba2aed4b37b463/649c2f65561dd83f0e82205c_CSTY-001_Credits_Film_2001.jpg",
@@ -293,26 +293,26 @@ let posterURLs = [
 ];
 
 // Track previously used image indexes
-let prevIndexes = [];
+let prevIndexes3 = [];
 
 // Attach event listeners for hover effect on movie items
-Array.from(movieItems).forEach((item) => {
+Array.from(movieItems3).forEach((item) => {
   item.addEventListener("mouseenter", function () {
-    let poster = item.querySelector(".home--movie-poster-3");
-    let randomIndex = getRandomIndex();
+    let poster3 = item.querySelector(".home--movie-poster-3");
+    let randomIndex3 = getRandomIndex();
 
     // Ensure the image is not reused immediately
-    while (prevIndexes.includes(randomIndex)) {
-      randomIndex = getRandomIndex();
+    while (prevIndexes3.includes(randomIndex3)) {
+      randomIndex3 = getRandomIndex();
     }
 
     prevIndexes.push(randomIndex);
-    if (prevIndexes.length > 2) {
-      prevIndexes.shift();
+    if (prevIndexes3.length > 2) {
+      prevIndexes3.shift();
     }
 
-    let randomURL = posterURLs[randomIndex];
-    poster.src = randomURL;
+    let randomURL3 = posterURLs3[randomIndex3];
+    poster3.src = randomURL3;
   });
 
   item.addEventListener("mouseleave", function () {
@@ -322,8 +322,8 @@ Array.from(movieItems).forEach((item) => {
 });
 
 // Function to get random image index
-function getRandomIndex() {
-  return Math.floor(Math.random() * posterURLs.length);
+function getRandomIndex3() {
+  return Math.floor(Math.random() * posterURLs3.length);
 }
 
 // slider success stories
