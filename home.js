@@ -214,7 +214,7 @@ const animateImages = (light, fromImage, toImage) => {
   timeline
     .to(light, { opacity: 0, duration: 0.5 })
     .to(light, { opacity: 1, duration: 0.5 })
-    .to(fromImage, { opacity: 0, duration: 0.5 }, "<")
+    .to(fromImage, { opacity: 0, duration: 0.5, delay: -0.5 }, "<")
     .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 })
     .to({}, { duration: 4 }); // Add a pause of 4 seconds before next transition
 };
