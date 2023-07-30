@@ -341,3 +341,69 @@ document.addEventListener("DOMContentLoaded", function () {
 
   splide.mount();
 });
+
+const tl = gsap.timeline({ repeat: -1, repeatDelay: 5 });
+
+tl.to(
+  [
+    ".home--movie-item-1 .home--movie--light",
+    ".home--movie-item-1 .home--movie-poster-1",
+    ".home--movie-item-2 .home--movie--light",
+    ".home--movie-item-2 .home--movie-poster-2",
+    ".home--movie-item-3 .home--movie--light",
+    ".home--movie-item-3 .home--movie-poster-3",
+  ],
+  {
+    opacity: 1,
+    duration: 0.2,
+    delay: 0.2,
+    stagger: 0.2,
+  }
+)
+  .to(
+    [
+      ".home--movie-item-1 .home--movie--light",
+      ".home--movie-item-1 .home--movie-poster-1",
+      ".home--movie-item-2 .home--movie--light",
+      ".home--movie-item-2 .home--movie-poster-2",
+      ".home--movie-item-3 .home--movie--light",
+      ".home--movie-item-3 .home--movie-poster-3",
+    ],
+    {
+      opacity: 0,
+      duration: 0.2,
+      delay: 0.2,
+      stagger: 0.2,
+    }
+  )
+  .to(
+    [
+      ".home--movie-item-1 .home--movie--light",
+      ".home--movie-item-1 .home--movie-poster-1",
+      ".home--movie-item-2 .home--movie--light",
+      ".home--movie-item-2 .home--movie-poster-2",
+      ".home--movie-item-3 .home--movie--light",
+      ".home--movie-item-3 .home--movie-poster-3",
+    ],
+    {
+      opacity: 1,
+      duration: 0.2,
+      delay: 0.2,
+      stagger: 0.2,
+    }
+  );
+
+gsap.to(
+  [
+    ".home--movie-item-1 .home--movie--cadre",
+    ".home--movie-item-2 .home--movie--cadre",
+    ".home--movie-item-3 .home--movie--cadre",
+  ],
+  {
+    boxShadow: "-1px 0px 18px rgba(255, 195, 0, 0.63)",
+    duration: 0.2,
+    delay: 0.2,
+    repeat: -1,
+    yoyo: true,
+  }
+);
