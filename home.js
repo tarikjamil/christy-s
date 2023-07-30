@@ -208,68 +208,47 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-const tl = gsap.timeline({ repeat: -1, repeatDelay: 5 });
+// GSAP timeline
+const tl = gsap.timeline();
 
-tl.to(
-  [
-    ".home--movie-item-1 .home--movie--light",
-    ".home--movie-item-1 .home--movie-poster-1",
-    ".home--movie-item-2 .home--movie--light",
-    ".home--movie-item-2 .home--movie-poster-2",
-    ".home--movie-item-3 .home--movie--light",
-    ".home--movie-item-3 .home--movie-poster-3",
-  ],
-  {
-    opacity: 1,
-    duration: 0.2,
-    delay: 0.2,
-    stagger: 0.2,
-  }
-)
-  .to(
-    [
-      ".home--movie-item-1 .home--movie--light",
-      ".home--movie-item-1 .home--movie-poster-1",
-      ".home--movie-item-2 .home--movie--light",
-      ".home--movie-item-2 .home--movie-poster-2",
-      ".home--movie-item-3 .home--movie--light",
-      ".home--movie-item-3 .home--movie-poster-3",
-    ],
-    {
-      opacity: 0,
-      duration: 0.2,
-      delay: 0.2,
-      stagger: 0.2,
-    }
-  )
-  .to(
-    [
-      ".home--movie-item-1 .home--movie--light",
-      ".home--movie-item-1 .home--movie-poster-1",
-      ".home--movie-item-2 .home--movie--light",
-      ".home--movie-item-2 .home--movie-poster-2",
-      ".home--movie-item-3 .home--movie--light",
-      ".home--movie-item-3 .home--movie-poster-3",
-    ],
-    {
-      opacity: 1,
-      duration: 0.2,
-      delay: 0.2,
-      stagger: 0.2,
-    }
-  );
+// Select all elements with the class '.home--movie-item-1'
+const movieItems = document.querySelectorAll(".home--movie-item-1");
 
-gsap.to(
-  [
-    ".home--movie-item-1 .home--movie--cadre",
-    ".home--movie-item-2 .home--movie--cadre",
-    ".home--movie-item-3 .home--movie--cadre",
-  ],
-  {
-    boxShadow: "-1px 0px 18px rgba(255, 195, 0, 0.63)",
-    duration: 0.2,
-    delay: 0.2,
-    repeat: -1,
-    yoyo: true,
-  }
-);
+movieItems.forEach((item) => {
+  // Get the children elements (lights and images)
+  const light = item.querySelector(".home--movie--light");
+  const image1 = item.querySelector(".image-1");
+  const image2 = item.querySelector(".image-2");
+  const image3 = item.querySelector(".image-3");
+  const image4 = item.querySelector(".image-4");
+
+  // Animation for image 1
+  tl.to(light, { autoAlpha: 0, duration: 0.5 })
+    .to(light, { autoAlpha: 1, duration: 0.5 })
+    .to(image1, { autoAlpha: 0, duration: 0.5 })
+    .from(image2, { autoAlpha: 0, duration: 0.5 }, "-=0.5")
+    .addPause("+=4");
+
+  // Animation for image 2
+  tl.to(light, { autoAlpha: 0, duration: 0.5 })
+    .to(light, { autoAlpha: 1, duration: 0.5 })
+    .to(image2, { autoAlpha: 0, duration: 0.5 })
+    .from(image3, { autoAlpha: 0, duration: 0.5 }, "-=0.5")
+    .addPause("+=4");
+
+  // Animation for image 3
+  tl.to(light, { autoAlpha: 0, duration: 0.5 })
+    .to(light, { autoAlpha: 1, duration: 0.5 })
+    .to(image3, { autoAlpha: 0, duration: 0.5 })
+    .from(image4, { autoAlpha: 0, duration: 0.5 }, "-=0.5")
+    .addPause("+=4");
+
+  // Animation for image 4
+  tl.to(light, { autoAlpha: 0, duration: 0.5 })
+    .to(light, { autoAlpha: 1, duration: 0.5 })
+    .to(image4, { autoAlpha: 0, duration: 0.5 })
+    .from(image1, { autoAlpha: 0, duration: 0.5 }, "-=0.5");
+});
+
+// Loop animation forever
+tl.repeat(-1);
