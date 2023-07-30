@@ -208,14 +208,10 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-function animateElements(selector) {
-  const getRandomNumber = (min, max) => Math.random() * (max - min) + min;
+function animateElements(selector, duration) {
+  const timeline = gsap.timeline({ repeat: -1 });
 
-  const animateImages = (light, fromImage, toImage, duration) => {
-    const timeline = gsap.timeline({
-      onComplete: () => animateElements(selector),
-    });
-
+  const animateImages = (light, fromImage, toImage) => {
     timeline
       .to(light, { opacity: 0, duration: 0.5 })
       .to(light, { opacity: 1, duration: 0.5 })
@@ -228,21 +224,20 @@ function animateElements(selector) {
       .to({}, { duration: duration }); // Add a pause of duration seconds before next transition
   };
 
-  const item = document.querySelector(selector);
-  if (!item) return;
+  document.querySelectorAll(selector).forEach((item) => {
+    const light = item.querySelector(".home--movie--light");
+    const image1 = item.querySelector(".image-1");
+    const image2 = item.querySelector(".image-2");
+    const image3 = item.querySelector(".image-3");
+    const image4 = item.querySelector(".image-4");
 
-  const light = item.querySelector(".home--movie--light");
-  const image1 = item.querySelector(".image-1");
-  const image2 = item.querySelector(".image-2");
-  const image3 = item.querySelector(".image-3");
-  const image4 = item.querySelector(".image-4");
-
-  animateImages(light, image1, image2, getRandomNumber(4, 8));
-  animateImages(light, image2, image3, getRandomNumber(4, 8));
-  animateImages(light, image3, image4, getRandomNumber(4, 8));
-  animateImages(light, image4, image1, getRandomNumber(4, 8));
+    animateImages(light, image1, image2);
+    animateImages(light, image2, image3);
+    animateImages(light, image3, image4);
+    animateImages(light, image4, image1);
+  });
 }
 
-animateElements(".home--movie-item-1");
-animateElements(".home--movie-item-2");
-animateElements(".home--movie-item-3");
+animateElements(".home--movie-item-1", 4);
+animateElements(".home--movie-item-2", 6);
+animateElements(".home--movie-item-3", 5);
