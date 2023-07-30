@@ -208,47 +208,26 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-// GSAP timeline
-const tl = gsap.timeline();
+const timeline = gsap.timeline({ repeat: -1 });
 
-// Select all elements with the class '.home--movie-item-1'
-const movieItems = document.querySelectorAll(".home--movie-item-1");
+const animateImages = (light, fromImage, toImage) => {
+  timeline
+    .to(light, { opacity: 0, duration: 0.5 })
+    .to(light, { opacity: 1, duration: 0.5 })
+    .to(fromImage, { opacity: 0, duration: 0.5 }, "<")
+    .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+    .to({}, { duration: 4 }); // Add a pause of 4 seconds before next transition
+};
 
-movieItems.forEach((item) => {
-  // Get the children elements (lights and images)
+document.querySelectorAll(".home--movie-item-1").forEach((item) => {
   const light = item.querySelector(".home--movie--light");
   const image1 = item.querySelector(".image-1");
   const image2 = item.querySelector(".image-2");
   const image3 = item.querySelector(".image-3");
   const image4 = item.querySelector(".image-4");
 
-  // Animation for image 1
-  tl.to(light, { autoAlpha: 0, duration: 0.5 })
-    .to(light, { autoAlpha: 1, duration: 0.5 })
-    .to(image1, { autoAlpha: 0, duration: 0.5 })
-    .from(image2, { autoAlpha: 0, duration: 0.5 }, "-=0.5")
-    .addPause("+=4");
-
-  // Animation for image 2
-  tl.to(light, { autoAlpha: 0, duration: 0.5 })
-    .to(light, { autoAlpha: 1, duration: 0.5 })
-    .to(image2, { autoAlpha: 0, duration: 0.5 })
-    .from(image3, { autoAlpha: 0, duration: 0.5 }, "-=0.5")
-    .addPause("+=4");
-
-  // Animation for image 3
-  tl.to(light, { autoAlpha: 0, duration: 0.5 })
-    .to(light, { autoAlpha: 1, duration: 0.5 })
-    .to(image3, { autoAlpha: 0, duration: 0.5 })
-    .from(image4, { autoAlpha: 0, duration: 0.5 }, "-=0.5")
-    .addPause("+=4");
-
-  // Animation for image 4
-  tl.to(light, { autoAlpha: 0, duration: 0.5 })
-    .to(light, { autoAlpha: 1, duration: 0.5 })
-    .to(image4, { autoAlpha: 0, duration: 0.5 })
-    .from(image1, { autoAlpha: 0, duration: 0.5 }, "-=0.5");
+  animateImages(light, image1, image2);
+  animateImages(light, image2, image3);
+  animateImages(light, image3, image4);
+  animateImages(light, image4, image1);
 });
-
-// Loop animation forever
-tl.repeat(-1);
