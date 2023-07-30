@@ -209,9 +209,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function animateElements(selector) {
-  const timeline = gsap.timeline({ repeat: -1 });
+  const getRandomNumber = (min, max) => Math.random() * (max - min) + min;
 
-  const animateImages = (light, fromImage, toImage) => {
+  const animateImages = (light, fromImage, toImage, duration) => {
+    const timeline = gsap.timeline({
+      onComplete: () => animateElements(selector),
+    });
+
     timeline
       .to(light, { opacity: 0, duration: 0.5 })
       .to(light, { opacity: 1, duration: 0.5 })
@@ -221,21 +225,22 @@ function animateElements(selector) {
         { opacity: 0 },
         { opacity: 1, duration: 0.5, delay: -0.5 }
       )
-      .to({}, { duration: getRandomNumber(4, 8) }); // Add a pause of duration seconds before next transition
+      .to({}, { duration: duration }); // Add a pause of duration seconds before next transition
   };
 
-  document.querySelectorAll(selector).forEach((item) => {
-    const light = item.querySelector(".home--movie--light");
-    const image1 = item.querySelector(".image-1");
-    const image2 = item.querySelector(".image-2");
-    const image3 = item.querySelector(".image-3");
-    const image4 = item.querySelector(".image-4");
+  const item = document.querySelector(selector);
+  if (!item) return;
 
-    animateImages(light, image1, image2);
-    animateImages(light, image2, image3);
-    animateImages(light, image3, image4);
-    animateImages(light, image4, image1);
-  });
+  const light = item.querySelector(".home--movie--light");
+  const image1 = item.querySelector(".image-1");
+  const image2 = item.querySelector(".image-2");
+  const image3 = item.querySelector(".image-3");
+  const image4 = item.querySelector(".image-4");
+
+  animateImages(light, image1, image2, getRandomNumber(4, 8));
+  animateImages(light, image2, image3, getRandomNumber(4, 8));
+  animateImages(light, image3, image4, getRandomNumber(4, 8));
+  animateImages(light, image4, image1, getRandomNumber(4, 8));
 }
 
 animateElements(".home--movie-item-1");
