@@ -208,7 +208,7 @@ document.addEventListener("DOMContentLoaded", function () {
   splide.mount();
 });
 
-function animateElements(selector, duration) {
+function animateElements(selector) {
   const timeline = gsap.timeline({ repeat: -1 });
 
   const animateImages = (light, fromImage, toImage) => {
@@ -221,7 +221,7 @@ function animateElements(selector, duration) {
         { opacity: 0 },
         { opacity: 1, duration: 0.5, delay: -0.5 }
       )
-      .to({}, { duration: duration }); // Add a pause of duration seconds before next transition
+      .to({}, { duration: getRandomNumber(4, 8) }); // Add a pause of duration seconds before next transition
   };
 
   document.querySelectorAll(selector).forEach((item) => {
@@ -238,6 +238,6 @@ function animateElements(selector, duration) {
   });
 }
 
-animateElements(".home--movie-item-1", 4);
-animateElements(".home--movie-item-2", 5);
-animateElements(".home--movie-item-3", 6);
+animateElements(".home--movie-item-1");
+animateElements(".home--movie-item-2");
+animateElements(".home--movie-item-3");
