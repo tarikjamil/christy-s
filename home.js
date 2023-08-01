@@ -238,6 +238,6 @@ function animateElements(selector, duration) {
   });
 }
 
-animateElements(".home--movie-item-1", 4);
-animateElements(".home--movie-item-2", 6);
-animateElements(".home--movie-item-3", 5);
+animateElements(".home--movie-item-1", 2);
+animateElements(".home--movie-item-2", 3);
+animateElements(".home--movie-item-3", 2.5);
