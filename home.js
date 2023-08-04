@@ -239,5 +239,5 @@ function animateElements(selector, duration) {
 }
 
 animateElements(".home--movie-item-1", 2);
-animateElements(".home--movie-item-2", 3);
-animateElements(".home--movie-item-3", 2.5);
+animateElements(".home--movie-item-2", 2);
+animateElements(".home--movie-item-3", 2);
