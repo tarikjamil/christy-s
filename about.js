@@ -37,9 +37,9 @@ function pageLoad() {
     opacity: 0,
     y: "20rem",
     ease: "Quint.easeOut",
-    duration: 1,
+    duration: 1.2,
     stagger: {
-      each: 0.1,
+      each: 0.15,
     },
     delay: 0.75, // delay in seconds
   });
@@ -116,6 +116,33 @@ $("[animation='parallax-wrapper']").each(function (index) {
     target,
     {
       y: "-10%",
+    },
+    0
+  );
+});
+
+$("[animation='fadein']").each(function (index) {
+  let target = $(this);
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: $(this),
+      start: "top bottom-=100",
+      end: "bottom center",
+      scrub: true,
+    },
+  });
+
+  tl.from(
+    target,
+    {
+      y: "20rem",
+      opacity: 0,
+      ease: "Quint.easeOut",
+      duration: 1,
+      stagger: {
+        each: 0.1,
+        from: "start",
+      },
     },
     0
   );
