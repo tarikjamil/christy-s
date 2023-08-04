@@ -37,9 +37,9 @@ function pageLoad() {
     opacity: 0,
     y: "20rem",
     ease: "Quint.easeOut",
-    duration: 1,
+    duration: 1.2,
     stagger: {
-      each: 0.1,
+      each: 0.15,
     },
     delay: 0.75, // delay in seconds
   });
