@@ -241,8 +241,8 @@ function animateElements(selector, duration) {
       .add(animateImages(light, image3, image4))
       .add(animateImages(light, image4, image1));
 
-    masterTimeline.add(itemTimeline, index); // Add a delay between the start of each item's animation
+    masterTimeline.add(itemTimeline, index * 2); // Add a delay between the start of each item's animation
   });
 }
 
-animateElements(".home--movie-item-1", 2);
+animateElements(".home--movie-item-1", 4);
