@@ -245,4 +245,4 @@ function animateElements(selector, duration) {
   });
 }
 
-animateElements(".home--movie-item", 2);
+animateElements(".home--movie-item-1", 2);
