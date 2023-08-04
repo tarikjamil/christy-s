@@ -209,10 +209,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function animateElements(selector, duration) {
-  const timeline = gsap.timeline({ repeat: -1 });
+  const masterTimeline = gsap.timeline({ repeat: -1 });
 
   const animateImages = (light, fromImage, toImage) => {
-    timeline
+    const timeline = gsap
+      .timeline()
       .to(light, { opacity: 0, duration: 0.5 })
       .to(light, { opacity: 1, duration: 0.5 })
       .to(fromImage, { opacity: 0, duration: 0.5, delay: -0.5 }, "<")
@@ -222,22 +223,26 @@ function animateElements(selector, duration) {
         { opacity: 1, duration: 0.5, delay: -0.5 }
       )
       .to({}, { duration: duration }); // Add a pause of duration seconds before next transition
+
+    return timeline;
   };
 
-  document.querySelectorAll(selector).forEach((item) => {
+  document.querySelectorAll(selector).forEach((item, index) => {
     const light = item.querySelector(".home--movie--light");
     const image1 = item.querySelector(".image-1");
     const image2 = item.querySelector(".image-2");
     const image3 = item.querySelector(".image-3");
     const image4 = item.querySelector(".image-4");
 
-    animateImages(light, image1, image2);
-    animateImages(light, image2, image3);
-    animateImages(light, image3, image4);
-    animateImages(light, image4, image1);
+    const itemTimeline = gsap
+      .timeline()
+      .add(animateImages(light, image1, image2))
+      .add(animateImages(light, image2, image3))
+      .add(animateImages(light, image3, image4))
+      .add(animateImages(light, image4, image1));
+
+    masterTimeline.add(itemTimeline, index); // Add a delay between the start of each item's animation
   });
 }
 
-animateElements(".home--movie-item-1", 2);
-animateElements(".home--movie-item-2", 2);
-animateElements(".home--movie-item-3", 2);
+animateElements(".home--movie-item", 2);
