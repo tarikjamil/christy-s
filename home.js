@@ -218,13 +218,7 @@ function animateElements(selector, duration) {
       .to(target, { opacity: 0.3, duration: 0.05 });
   };
 
-  const animateImages = (
-    light,
-    fromImage,
-    toImage,
-    addPause = true,
-    retainOpacity = false
-  ) => {
+  const animateImages = (light, fromImage, toImage, addPause = true) => {
     const timeline = gsap.timeline();
 
     timeline
@@ -234,18 +228,8 @@ function animateElements(selector, duration) {
       .to(fromImage, { opacity: 0, duration: 0.5 }, "<")
       .add(flicker(light))
       .add(flicker(toImage), "<")
-      .to(light, { opacity: 1, duration: 0.5 });
-
-    if (retainOpacity) {
-      timeline.to(toImage, { opacity: 1, duration: 0.01 }, "<"); // Just ensuring the opacity remains 1
-    } else {
-      timeline.fromTo(
-        toImage,
-        { opacity: 0 },
-        { opacity: 1, duration: 0.5 },
-        "<"
-      );
-    }
+      .to(light, { opacity: 1, duration: 0.5 })
+      .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
 
     if (addPause) {
       timeline.to({}, { duration: duration });
@@ -261,14 +245,15 @@ function animateElements(selector, duration) {
     const image3 = item.querySelector(".image-3");
     const image4 = item.querySelector(".image-4");
 
-    gsap.set(image4, { opacity: 1 }); // Setting the initial state
+    // Setting the initial state for image4
+    gsap.set(image4, { opacity: 1 });
 
     const itemTimeline = gsap
       .timeline()
-      .add(animateImages(light, image4, image1, true))
-      .add(animateImages(light, image1, image2, true))
-      .add(animateImages(light, image2, image3, true))
-      .add(animateImages(light, image3, image4, true, true));
+      .add(animateImages(light, image4, image1))
+      .add(animateImages(light, image1, image2))
+      .add(animateImages(light, image2, image3))
+      .add(animateImages(light, image3, image4));
 
     masterTimeline.add(itemTimeline);
   });
