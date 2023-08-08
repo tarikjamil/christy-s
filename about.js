@@ -147,3 +147,39 @@ $("[animation='fadein']").each(function (index) {
     0
   );
 });
+
+function typewriterEffect(elementId, content) {
+  // Reference to the output container
+  const output = document.getElementById(elementId);
+
+  // Split the content into individual characters
+  const chars = content.split("");
+
+  // Clear the container's initial content (if any)
+  output.innerHTML = "";
+
+  // Create a GSAP timeline for our typewriter effect
+  const timeline = gsap.timeline();
+
+  chars.forEach((char, index) => {
+    // Append a span for each character and make it transparent
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.opacity = "0";
+    output.appendChild(span);
+
+    // Add a tween for each character to the timeline
+    timeline.to(
+      span,
+      {
+        opacity: 1,
+        ease: "power1.inOut",
+        duration: 0.1,
+      },
+      `+=0.1`
+    ); // Delay of 0.1 for the typewriter effect
+  });
+}
+
+// Usage
+typewriterEffect("output", "This is a typewriter effect using GSAP!");
