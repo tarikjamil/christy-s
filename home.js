@@ -207,6 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   splide.mount();
 });
+gsap.set(image4, { opacity: 1 });
 
 function animateElements(selector, duration) {
   const masterTimeline = gsap.timeline({
@@ -261,7 +262,7 @@ function animateElements(selector, duration) {
       .add(animateImages(light, image4, image1, true))
       .add(animateImages(light, image1, image2, true))
       .add(animateImages(light, image2, image3, true))
-      .add(animateImages(light, image3, image4, true))
+      .add(animateImages(light, image3, image4, false))
       .to(image4, { opacity: 1, duration: 0 }); // Asserting the ending opacity for image4
 
     masterTimeline.add(itemTimeline, index * 2);
