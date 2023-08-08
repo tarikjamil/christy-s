@@ -249,9 +249,9 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
-      .add(animateImages(light, image4, image1, false))
-      .add(animateImages(light, image1, image2, false))
-      .add(animateImages(light, image2, image3, false))
+      .add(animateImages(light, image4, image1, true))
+      .add(animateImages(light, image1, image2, true))
+      .add(animateImages(light, image2, image3, true))
       .add(animateImages(light, image3, image4, false)); // Keeping the pause after transitioning to image4 for the loop to be seamless.
 
     masterTimeline.add(itemTimeline, index * 2);
