@@ -223,21 +223,29 @@ function animateElements(selector, duration) {
     fromImage,
     toImage,
     addPause = true,
-    skipInitialFlicker = false
+    retainOpacity = false
   ) => {
     const timeline = gsap.timeline();
 
-    if (!skipInitialFlicker) {
-      timeline.add(flicker(light), "start").add(flicker(fromImage), "start");
-    }
-
     timeline
+      .add(flicker(light), "start")
+      .add(flicker(fromImage), "start")
       .to(light, { opacity: 0, duration: 0.5 })
       .to(fromImage, { opacity: 0, duration: 0.5 }, "<")
       .add(flicker(light))
       .add(flicker(toImage), "<")
-      .to(light, { opacity: 1, duration: 0.5 })
-      .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
+      .to(light, { opacity: 1, duration: 0.5 });
+
+    if (retainOpacity) {
+      timeline.to(toImage, { opacity: 1, duration: 0.01 }, "<"); // Just ensuring the opacity remains 1
+    } else {
+      timeline.fromTo(
+        toImage,
+        { opacity: 0 },
+        { opacity: 1, duration: 0.5 },
+        "<"
+      );
+    }
 
     if (addPause) {
       timeline.to({}, { duration: duration });
@@ -246,24 +254,23 @@ function animateElements(selector, duration) {
     return timeline;
   };
 
-  document.querySelectorAll(selector).forEach((item, index) => {
+  document.querySelectorAll(selector).forEach((item) => {
     const light = item.querySelector(".home--movie--light");
     const image1 = item.querySelector(".image-1");
     const image2 = item.querySelector(".image-2");
     const image3 = item.querySelector(".image-3");
     const image4 = item.querySelector(".image-4");
 
-    // Setting the initial state of image4 for each selector
-    gsap.set(image4, { opacity: 1 });
+    gsap.set(image4, { opacity: 1 }); // Setting the initial state
 
     const itemTimeline = gsap
       .timeline()
-      .add(animateImages(light, image4, image1, true, true)) // skip the initial flicker for image4 to image1 transition
-      .add(animateImages(light, image1, image2, true))
-      .add(animateImages(light, image2, image3, true))
-      .add(animateImages(light, image3, image4, true));
+      .add(animateImages(light, image4, image1))
+      .add(animateImages(light, image1, image2))
+      .add(animateImages(light, image2, image3))
+      .add(animateImages(light, image3, image4, true, true));
 
-    masterTimeline.add(itemTimeline, index * 2);
+    masterTimeline.add(itemTimeline);
   });
 }
 
