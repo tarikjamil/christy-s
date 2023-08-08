@@ -149,26 +149,26 @@ $("[animation='fadein']").each(function (index) {
 });
 
 function typewriterEffect(elementId, content) {
-  // Reference to the output container
-  const output = document.getElementById(elementId);
-
-  // Split the content into individual characters
-  const chars = content.split("");
-
-  // Clear the container's initial content (if any)
+  let output = document.getElementById(elementId);
+  let chars = content.split("");
   output.innerHTML = "";
 
-  // Create a GSAP timeline for our typewriter effect
-  const timeline = gsap.timeline();
+  let timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: output,
+      start: "top center",
+      end: "bottom center",
+      scrub: 1,
+      markers: true,
+    },
+  });
 
   chars.forEach((char, index) => {
-    // Append a span for each character and make it transparent
-    const span = document.createElement("span");
+    let span = document.createElement("span");
     span.textContent = char;
     span.style.opacity = "0";
     output.appendChild(span);
 
-    // Add a tween for each character to the timeline
     timeline.to(
       span,
       {
@@ -176,10 +176,12 @@ function typewriterEffect(elementId, content) {
         ease: "power1.inOut",
         duration: 0.1,
       },
-      `+=0.05`
-    ); // Delay of 0.1 for the typewriter effect
+      `+=0.1`
+    );
   });
 }
 
-// Usage
-typewriterEffect("output", "This is a typewriter effect using GSAP!");
+typewriterEffect(
+  "output",
+  "This is a scrubbable typewriter effect using GSAP!"
+);
