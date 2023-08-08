@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   splide.mount();
 });
-gsap.set(image4, { opacity: 1 });
+gsap.set(".image-4", { opacity: 1 });
 
 function animateElements(selector, duration) {
   const masterTimeline = gsap.timeline({
