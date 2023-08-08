@@ -176,7 +176,7 @@ function typewriterEffect(elementId, content) {
         ease: "power1.inOut",
         duration: 0.1,
       },
-      `+=0.1`
+      `+=0.05`
     ); // Delay of 0.1 for the typewriter effect
   });
 }
