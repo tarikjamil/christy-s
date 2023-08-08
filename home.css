@@ -9,3 +9,16 @@
 .splide__track {
   overflow: visible;
 }
+
+.image-1,
+.image-2,
+.image-3 {
+  opacity: 0; /* These are invisible at the start */
+}
+
+.image-4 {
+  opacity: 1; /* This is the visible image at the start */
+}
+.home--movie--light {
+  opacity: 1; /* Assuming you want the light to be visible at the start */
+}

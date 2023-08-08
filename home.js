@@ -246,10 +246,10 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
+      .add(animateImages(light, image4, image1))
       .add(animateImages(light, image1, image2))
       .add(animateImages(light, image2, image3))
-      .add(animateImages(light, image3, image4))
-      .add(animateImages(light, image4, image1, false)); // For the transition back to the first image, we don't add a pause
+      .add(animateImages(light, image3, image4, false)); // The last transition would be from image3 to image4 without an added pause.
 
     masterTimeline.add(itemTimeline, index * 2); // Add a delay between the start of each item's animation
   });
