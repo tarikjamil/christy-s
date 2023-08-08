@@ -211,10 +211,19 @@ document.addEventListener("DOMContentLoaded", function () {
 function animateElements(selector, duration) {
   const masterTimeline = gsap.timeline({ repeat: -1 });
 
+  const flicker = (target) => {
+    return gsap
+      .timeline({ repeat: 2, yoyo: true })
+      .to(target, { opacity: 0.7, duration: 0.05 })
+      .to(target, { opacity: 0.3, duration: 0.05 });
+  };
+
   const animateImages = (light, fromImage, toImage) => {
     const timeline = gsap
       .timeline()
+      .add(flicker(light))
       .to(light, { opacity: 0, duration: 0.5 })
+      .add(flicker(light))
       .to(light, { opacity: 1, duration: 0.5 })
       .to(fromImage, { opacity: 0, duration: 0.5, delay: -0.5 }, "<")
       .fromTo(
