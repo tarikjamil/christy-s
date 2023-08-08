@@ -148,15 +148,14 @@ $("[animation='fadein']").each(function (index) {
   );
 });
 
-function typewriterEffect(elementId) {
-  let output = document.getElementById(elementId);
-  let content = output.textContent; // Get the initial content of the element
+function typewriterEffect(element, triggerElement) {
+  let content = element.textContent;
   let chars = content.split("");
-  output.innerHTML = "";
+  element.innerHTML = "";
 
   let timeline = gsap.timeline({
     scrollTrigger: {
-      trigger: output,
+      trigger: triggerElement,
       start: "top center",
       end: "bottom center",
       scrub: 1,
@@ -166,9 +165,13 @@ function typewriterEffect(elementId) {
 
   chars.forEach((char, index) => {
     let span = document.createElement("span");
-    span.textContent = char;
+    if (char === " ") {
+      span.innerHTML = "&nbsp;";
+    } else {
+      span.textContent = char;
+    }
     span.style.opacity = "0";
-    output.appendChild(span);
+    element.appendChild(span);
 
     timeline.to(
       span,
@@ -182,4 +185,8 @@ function typewriterEffect(elementId) {
   });
 }
 
-typewriterEffect("output"); // Just provide the element ID, no need for content now.
+document.querySelectorAll('[animation="typewriter"]').forEach((el) => {
+  let triggerEl = el.closest('[animation="typewriter-trigger"]') || el;
+  // If there's no trigger element, the typewriter element itself will be the trigger
+  typewriterEffect(el, triggerEl);
+});
