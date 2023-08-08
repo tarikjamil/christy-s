@@ -148,8 +148,9 @@ $("[animation='fadein']").each(function (index) {
   );
 });
 
-function typewriterEffect(elementId, content) {
+function typewriterEffect(elementId) {
   let output = document.getElementById(elementId);
+  let content = output.textContent; // Get the initial content of the element
   let chars = content.split("");
   output.innerHTML = "";
 
@@ -181,7 +182,4 @@ function typewriterEffect(elementId, content) {
   });
 }
 
-typewriterEffect(
-  "output",
-  "This is a scrubbable typewriter effect using GSAP!"
-);
+typewriterEffect("output"); // Just provide the element ID, no need for content now.
