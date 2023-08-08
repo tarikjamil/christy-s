@@ -219,9 +219,8 @@ function animateElements(selector, duration) {
   };
 
   const animateImages = (light, fromImage, toImage, addPause = true) => {
-    const timeline = gsap.timeline();
-
-    timeline
+    const timeline = gsap
+      .timeline()
       .add(flicker(light), "start")
       .add(flicker(fromImage), "start")
       .to(light, { opacity: 0, duration: 0.5 })
@@ -238,24 +237,24 @@ function animateElements(selector, duration) {
     return timeline;
   };
 
-  document.querySelectorAll(selector).forEach((item) => {
+  document.querySelectorAll(selector).forEach((item, index) => {
     const light = item.querySelector(".home--movie--light");
     const image1 = item.querySelector(".image-1");
     const image2 = item.querySelector(".image-2");
     const image3 = item.querySelector(".image-3");
     const image4 = item.querySelector(".image-4");
 
-    // Setting the initial state for image4
+    // Setting the initial state of image4 for each selector
     gsap.set(image4, { opacity: 1 });
 
     const itemTimeline = gsap
       .timeline()
-      .add(animateImages(light, image4, image1))
-      .add(animateImages(light, image1, image2))
-      .add(animateImages(light, image2, image3))
-      .add(animateImages(light, image3, image4));
+      .add(animateImages(light, image4, image1, true))
+      .add(animateImages(light, image1, image2, true))
+      .add(animateImages(light, image2, image3, true))
+      .add(animateImages(light, image3, image4, true)); // Keeping the pause after transitioning to image4 for the loop to be seamless.
 
-    masterTimeline.add(itemTimeline);
+    masterTimeline.add(itemTimeline, index * 2);
   });
 }
 
