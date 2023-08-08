@@ -159,7 +159,7 @@ function typewriterEffect(element, triggerElement) {
       start: "top center",
       end: "top top",
       scrub: 1,
-      markers: true,
+      markers: false,
     },
   });
 
