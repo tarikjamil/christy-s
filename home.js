@@ -265,9 +265,9 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
-      .add(animateImages(light, image4, image1))
-      .add(animateImages(light, image1, image2))
-      .add(animateImages(light, image2, image3))
+      .add(animateImages(light, image4, image1, true))
+      .add(animateImages(light, image1, image2, true))
+      .add(animateImages(light, image2, image3, true))
       .add(animateImages(light, image3, image4, true, true));
 
     masterTimeline.add(itemTimeline);
