@@ -157,7 +157,7 @@ function typewriterEffect(element, triggerElement) {
     scrollTrigger: {
       trigger: triggerElement,
       start: "top center",
-      end: "bottom center",
+      end: "top top",
       scrub: 1,
       markers: true,
     },
