@@ -218,11 +218,20 @@ function animateElements(selector, duration) {
       .to(target, { opacity: 0.3, duration: 0.05 });
   };
 
-  const animateImages = (light, fromImage, toImage, addPause = true) => {
-    const timeline = gsap
-      .timeline()
-      .add(flicker(light), "start")
-      .add(flicker(fromImage), "start")
+  const animateImages = (
+    light,
+    fromImage,
+    toImage,
+    addPause = true,
+    skipInitialFlicker = false
+  ) => {
+    const timeline = gsap.timeline();
+
+    if (!skipInitialFlicker) {
+      timeline.add(flicker(light), "start").add(flicker(fromImage), "start");
+    }
+
+    timeline
       .to(light, { opacity: 0, duration: 0.5 })
       .to(fromImage, { opacity: 0, duration: 0.5 }, "<")
       .add(flicker(light))
@@ -249,10 +258,10 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
-      .add(animateImages(light, image4, image1, true))
+      .add(animateImages(light, image4, image1, true, true)) // skip the initial flicker for image4 to image1 transition
       .add(animateImages(light, image1, image2, true))
       .add(animateImages(light, image2, image3, true))
-      .add(animateImages(light, image3, image4, false)); // Keeping the pause after transitioning to image4 for the loop to be seamless.
+      .add(animateImages(light, image3, image4, true));
 
     masterTimeline.add(itemTimeline, index * 2);
   });
