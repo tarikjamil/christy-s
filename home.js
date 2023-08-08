@@ -249,12 +249,12 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
-      .to(image4, { opacity: 1, duration: 0.01 })
+      .to(image4, { opacity: 1, duration: 0 })
       .add(animateImages(light, image4, image1, true))
       .add(animateImages(light, image1, image2, true))
       .add(animateImages(light, image2, image3, true))
       .add(animateImages(light, image3, image4, true))
-      .to(image4, { opacity: 1, duration: 0.01 }); // Keeping the pause after transitioning to image4 for the loop to be seamless.
+      .to(image4, { opacity: 1, duration: 0 }); // Keeping the pause after transitioning to image4 for the loop to be seamless.
 
     masterTimeline.add(itemTimeline, index * 2);
   });
