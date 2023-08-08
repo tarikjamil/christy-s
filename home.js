@@ -218,7 +218,7 @@ function animateElements(selector, duration) {
       .to(target, { opacity: 0.3, duration: 0.05 });
   };
 
-  const animateImages = (light, fromImage, toImage) => {
+  const animateImages = (light, fromImage, toImage, addPause = true) => {
     const timeline = gsap
       .timeline()
       .add(flicker(light), "start")
@@ -228,8 +228,11 @@ function animateElements(selector, duration) {
       .add(flicker(light))
       .add(flicker(toImage), "<")
       .to(light, { opacity: 1, duration: 0.5 })
-      .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<")
-      .to({}, { duration: duration }); // Add a pause of duration seconds before next transition
+      .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
+
+    if (addPause) {
+      timeline.to({}, { duration: duration }); // Add a pause of duration seconds only if addPause is true
+    }
 
     return timeline;
   };
@@ -246,7 +249,7 @@ function animateElements(selector, duration) {
       .add(animateImages(light, image1, image2))
       .add(animateImages(light, image2, image3))
       .add(animateImages(light, image3, image4))
-      .add(animateImages(light, image4, image1));
+      .add(animateImages(light, image4, image1, false)); // For the transition back to the first image, we don't add a pause
 
     masterTimeline.add(itemTimeline, index * 2); // Add a delay between the start of each item's animation
   });
