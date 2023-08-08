@@ -209,7 +209,15 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function animateElements(selector, duration) {
-  const masterTimeline = gsap.timeline({ repeat: -1 });
+  const masterTimeline = gsap.timeline({
+    repeat: -1,
+    onRepeat: function () {
+      document.querySelectorAll(selector).forEach((item) => {
+        const image4 = item.querySelector(".image-4");
+        gsap.set(image4, { opacity: 1 });
+      });
+    },
+  });
 
   const flicker = (target) => {
     return gsap
@@ -249,12 +257,12 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
-      .to(image4, { opacity: 1, duration: 0 })
+      .to(image4, { opacity: 1, duration: 0 }) // Asserting the starting opacity for image4
       .add(animateImages(light, image4, image1, true))
       .add(animateImages(light, image1, image2, true))
       .add(animateImages(light, image2, image3, true))
       .add(animateImages(light, image3, image4, true))
-      .to(image4, { opacity: 1, duration: 0 }); // Keeping the pause after transitioning to image4 for the loop to be seamless.
+      .to(image4, { opacity: 1, duration: 0 }); // Asserting the ending opacity for image4
 
     masterTimeline.add(itemTimeline, index * 2);
   });
