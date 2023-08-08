@@ -272,4 +272,4 @@ function animateElements(selector, duration) {
   });
 }
 
-animateElements(".home--movie-item-1", 4);
+animateElements(".home--movie-item-1", 6);
