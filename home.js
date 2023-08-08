@@ -240,7 +240,7 @@ function animateElements(selector, duration) {
       .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
 
     // Adding a pause between animations
-    timeline.to({}, { duration: 0.5 });
+    timeline.to({}, { duration: 1 });
 
     if (addPause) {
       timeline.to({}, { duration: duration });
