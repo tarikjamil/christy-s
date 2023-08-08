@@ -209,7 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function animateElements(selector, duration) {
-  const masterTimeline = gsap.timeline();
+  const masterTimeline = gsap.timeline({ repeat: -1 });
 
   const flicker = (target) => {
     return gsap
@@ -231,31 +231,28 @@ function animateElements(selector, duration) {
       .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<");
 
     if (addPause) {
-      timeline.to({}, { duration: duration }); // Add a pause of duration seconds only if addPause is true
+      timeline.to({}, { duration: duration });
     }
 
     return timeline;
   };
 
-  // Create multiple instances of the animation sequence for repetition
-  for (let i = 0; i < 3; i++) {
-    document.querySelectorAll(selector).forEach((item, index) => {
-      const light = item.querySelector(".home--movie--light");
-      const image1 = item.querySelector(".image-1");
-      const image2 = item.querySelector(".image-2");
-      const image3 = item.querySelector(".image-3");
-      const image4 = item.querySelector(".image-4");
+  document.querySelectorAll(selector).forEach((item, index) => {
+    const light = item.querySelector(".home--movie--light");
+    const image1 = item.querySelector(".image-1");
+    const image2 = item.querySelector(".image-2");
+    const image3 = item.querySelector(".image-3");
+    const image4 = item.querySelector(".image-4");
 
-      const itemTimeline = gsap
-        .timeline()
-        .add(animateImages(light, image4, image1, true))
-        .add(animateImages(light, image1, image2, true))
-        .add(animateImages(light, image2, image3, true))
-        .add(animateImages(light, image3, image4, true));
+    const itemTimeline = gsap
+      .timeline()
+      .add(animateImages(light, image4, image1, true))
+      .add(animateImages(light, image1, image2, true))
+      .add(animateImages(light, image2, image3, true))
+      .add(animateImages(light, image3, image4, true)); // Still keep the pause after transitioning to image4.
 
-      masterTimeline.add(itemTimeline, index * 2);
-    });
-  }
+    masterTimeline.add(itemTimeline, index * 2);
+  });
 }
 
 animateElements(".home--movie-item-1", 4);
