@@ -221,14 +221,14 @@ function animateElements(selector, duration) {
   const animateImages = (light, fromImage, toImage) => {
     const timeline = gsap
       .timeline()
-      .add(flicker(light))
+      .add(flicker(light), "start")
+      .add(flicker(fromImage), "start")
       .to(light, { opacity: 0, duration: 0.5 })
+      .to(fromImage, { opacity: 0, duration: 0.5 }, "<")
       .add(flicker(light))
+      .add(flicker(toImage), "<")
       .to(light, { opacity: 1, duration: 0.5 })
-      .add(flicker(fromImage))
-      .to(fromImage, { opacity: 0, duration: 0.5 })
-      .add(flicker(toImage))
-      .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 })
+      .fromTo(toImage, { opacity: 0 }, { opacity: 1, duration: 0.5 }, "<")
       .to({}, { duration: duration }); // Add a pause of duration seconds before next transition
 
     return timeline;
