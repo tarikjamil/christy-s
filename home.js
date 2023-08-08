@@ -249,6 +249,7 @@ function animateElements(selector, duration) {
 
     const itemTimeline = gsap
       .timeline()
+      .to(image4, { opacity: 1, duration: 0.01 })
       .add(animateImages(light, image4, image1, true))
       .add(animateImages(light, image1, image2, true))
       .add(animateImages(light, image2, image3, true))
