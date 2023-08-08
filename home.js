@@ -244,12 +244,15 @@ function animateElements(selector, duration) {
     const image3 = item.querySelector(".image-3");
     const image4 = item.querySelector(".image-4");
 
+    // Setting the initial state of image4 for each selector
+    gsap.set(image4, { opacity: 1 });
+
     const itemTimeline = gsap
       .timeline()
       .add(animateImages(light, image4, image1, true))
       .add(animateImages(light, image1, image2, true))
       .add(animateImages(light, image2, image3, true))
-      .add(animateImages(light, image3, image4, true)); // Still keep the pause after transitioning to image4.
+      .add(animateImages(light, image3, image4, true)); // Keeping the pause after transitioning to image4 for the loop to be seamless.
 
     masterTimeline.add(itemTimeline, index * 2);
   });
