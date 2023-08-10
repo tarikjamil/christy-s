@@ -19,8 +19,8 @@ $(".shape--wrapper").each(function (index) {
   let tl = gsap.timeline({
     scrollTrigger: {
       trigger: $(this),
-      start: "top bottom",
-      end: "bottom top",
+      start: "bottom bottom",
+      end: "bottom bottom-=100px",
       scrub: true,
     },
   });
