@@ -20,8 +20,9 @@ $(".shape--wrapper").each(function (index) {
     scrollTrigger: {
       trigger: $(this),
       start: "bottom bottom",
-      end: "bottom bottom-=100px",
+      end: "bottom bottom -=100",
       scrub: true,
+      markers: true,
     },
   });
 
