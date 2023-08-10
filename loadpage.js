@@ -15,7 +15,7 @@ gsap.to(".loading--logo-wrapper", {
 // page finish loading
 window.addEventListener("load", function () {
   gsap.to(".loading-parent", {
-    opacity: 0,
+    y: "-100vh",
     ease: "Quint.easeOut",
     duration: 1,
     delay: 4, // delay in seconds
