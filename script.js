@@ -12,3 +12,25 @@ function raf(time) {
 }
 
 requestAnimationFrame(raf);
+
+$(".shape--wrapper").each(function (index) {
+  let target = $(this).find(".shape--img");
+
+  let tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: $(this),
+      start: "top bottom",
+      end: "bottom top",
+      scrub: true,
+    },
+  });
+
+  tl.from(
+    target,
+    {
+      y: "10%",
+      opacity: 0,
+    },
+    0
+  );
+});
