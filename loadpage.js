@@ -50,6 +50,6 @@ window.addEventListener("load", function () {
     stagger: {
       each: 0.1,
     },
-    delay: 4, // delay in seconds
+    delay: 6, // delay in seconds
   });
 });
