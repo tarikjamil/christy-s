@@ -24,13 +24,13 @@ window.addEventListener("load", function () {
     y: "-100vh",
     ease: "Quint.easeOut",
     duration: 1,
-    delay: 6, // delay in seconds
+    delay: 5, // delay in seconds
   });
   gsap.to(".loading--parent-second", {
     opacity: 1,
     ease: "Quint.easeOut",
     duration: 1,
-    delay: 6, // delay in seconds
+    delay: 5, // delay in seconds
   });
   gsap.from("[animation='loading']", {
     opacity: 0,
@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
     stagger: {
       each: 0.1,
     },
-    delay: 6, // delay in seconds
+    delay: 5, // delay in seconds
   });
   gsap.from("[animation='loading-navbar']", {
     opacity: 0,
@@ -50,6 +50,6 @@ window.addEventListener("load", function () {
     stagger: {
       each: 0.1,
     },
-    delay: 6, // delay in seconds
+    delay: 5, // delay in seconds
   });
 });
