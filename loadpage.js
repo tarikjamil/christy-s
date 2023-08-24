@@ -30,7 +30,7 @@ window.addEventListener("load", function () {
     opacity: 1,
     ease: "Quint.easeOut",
     duration: 1,
-    delay: 4, // delay in seconds
+    delay: 6, // delay in seconds
   });
   gsap.from("[animation='loading']", {
     opacity: 0,
@@ -40,7 +40,7 @@ window.addEventListener("load", function () {
     stagger: {
       each: 0.1,
     },
-    delay: 4, // delay in seconds
+    delay: 6, // delay in seconds
   });
   gsap.from("[animation='loading-navbar']", {
     opacity: 0,
