@@ -22,3 +22,7 @@
 .home--movie--light {
   opacity: 1; /* Assuming you want the light to be visible at the start */
 }
+
+.loading--top {
+  opacity: 0;
+}

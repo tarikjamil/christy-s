@@ -14,7 +14,7 @@ gsap.to(".loading--logo-wrapper", {
 
 // page finish loading
 window.addEventListener("load", function () {
-  gsap.from(".loading--top", {
+  gsap.to(".loading--top", {
     opacity: 0,
     ease: "Quint.easeOut",
     duration: 0,
