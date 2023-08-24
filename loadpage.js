@@ -14,11 +14,17 @@ gsap.to(".loading--logo-wrapper", {
 
 // page finish loading
 window.addEventListener("load", function () {
+  gsap.from(".loading--top", {
+    opacity: 0,
+    ease: "Quint.easeOut",
+    duration: 0,
+    delay: 4, // delay in seconds
+  });
   gsap.to(".loading-parent", {
     y: "-100vh",
     ease: "Quint.easeOut",
     duration: 1,
-    delay: 4, // delay in seconds
+    delay: 6, // delay in seconds
   });
   gsap.to(".loading--parent-second", {
     opacity: 1,
