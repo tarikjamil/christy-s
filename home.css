@@ -26,3 +26,7 @@
 .loading--top {
   opacity: 0;
 }
+
+.section.is--home-sun {
+  opacity: 0;
+}
