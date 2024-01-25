@@ -29,3 +29,7 @@ html.lenis {
 .services--posters {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
+
+.container--start.is--abouthero {
+  opacity: 0;
+}
