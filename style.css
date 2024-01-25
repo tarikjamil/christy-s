@@ -30,6 +30,7 @@ html.lenis {
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
-.container--start.is--abouthero {
+.container--start.is--abouthero,
+.contact--form {
   opacity: 0;
 }
