@@ -34,3 +34,7 @@ html.lenis {
 .contact--form {
   opacity: 0;
 }
+
+html {
+  font-size: 16px !important;
+}
