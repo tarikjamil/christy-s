@@ -1,1 +1,1 @@
-document.documentElement.style.fontSize = "2px";
+document.documentElement.style.fontSize = "1px";
